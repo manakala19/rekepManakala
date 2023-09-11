@@ -20,7 +20,8 @@
                     <div class="sm:w-1/2 px-16">
                         <h2 class="font-bold text-2xl text-blue-800"> Login</h2>
                         <p class="font-bold text-xl mt-4 text-blue-800"> Rekep APP </p>
-                        <form action="" class="flex flex-col gap-4">
+                        <form action="login" method="POST" class="flex flex-col gap-4">
+                            @csrf
                             <input class="p-2 mt-8 rounded-xl border w-full" type="email" name="email" placeholder="Email">
                         <div class="relative">
                             <input class="p-2 rounded-xl border w-full" type="password" name="password" placeholder="password">
@@ -42,11 +43,12 @@
         
                         <br>
                         
-        
+                        <a href="register">
                         <button class="bg-blue-800 border py-2 w-full rounded-xl text-white">
                             Register
                         </button>
-            
+                        </a>
+
                         <p class="mt-10 text-xs">Lupa Password?</p>
         
                     </div>
