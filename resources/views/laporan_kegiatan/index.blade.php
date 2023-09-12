@@ -33,6 +33,8 @@
         </tr>
         @endforeach
     </table>
-    <a href="{{route('laporan_kegiatan.create')}}"><button>Tambah Laporan</button></a>
+    <a href="{{route('laporan_kegiatan.create')}}"><button>Tambah Laporan</button></a><br><br>
+    <a href="admin"><button>Admin Section</button></a>
+
 </body>
 </html>

@@ -21,11 +21,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/dashboard', [layoutController::class, 'index'])->middleware('auth');
-Route::get('/admin/dashboard', [layoutController::class, 'adminDash']);
+Route::get('/admin', [layoutController::class, 'adminDash']);
 
 // resource (crud)
 Route::resource('laporan_kegiatan', ResourceController::class);
-
 
 // auth
 // --------
