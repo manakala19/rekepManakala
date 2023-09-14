@@ -22,10 +22,11 @@ Route::get('/', function () {
 });
 Route::get('/dashboard', [layoutController::class, 'index'])->middleware('auth');
 Route::get('/admin', [layoutController::class, 'adminDash']);
+Route::get('/admin/registrasiSiswa', [layoutController::class, 'siswaRegister']);
+Route::post('/admin/registrasiSiswa', [layoutController::class, 'storeSiswaRegister']);
 
 // resource (crud)
 Route::resource('laporan_kegiatan', ResourceController::class);
-
 // auth
 // --------
 Route::get('/login', [sessionController::class, 'login'])->middleware('guest');

@@ -30,6 +30,8 @@ class ResourceController extends Controller
             $laporan_kegiatan->hari = $request->hari;
             $laporan_kegiatan->minggu_ke = $request->minggu_ke;
             $laporan_kegiatan->kegiatan_kerja_harian = $request->kegiatan_kerja_harian;
+            $laporan_kegiatan->lampiran = $request->file('lampiran');
+            $laporan_kegiatan->lampiran->storeAs('public/lampiran', "rekep_lampiranSiswa".uniqid().'.'.$laporan_kegiatan->lampiran->extension());
             $laporan_kegiatan->save();
             return redirect()->route('laporan_kegiatan.index')->with('sukses','laporan kegiatan berhasil ditambahkan');
     }
