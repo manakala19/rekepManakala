@@ -10,7 +10,7 @@ class layoutController extends Controller
         return view('dashboard');
     }
     public function adminDash(){
-        return view('admin.dashboard');
+        return view('admin.index');
     }
     public function addLaporan(){
         return view('addLaporan');
