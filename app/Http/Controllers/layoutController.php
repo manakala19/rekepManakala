@@ -19,6 +19,12 @@ class layoutController extends Controller
     public function storeSiswaRegister(Request $request){
         $users = new User;
         $users->name = $request->namaLengkap;
+        $users->jurusan_id = $request->jurusan;
+        $users->tempat_prakerin= $request->tempat;
+        $users->email = $request->email;
+        $users->password = $request->password;
+        $users->save();
+        return redirect()->route('admin.index');
     }
     public function addLaporan(){
         return view('addLaporan');

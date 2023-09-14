@@ -40,7 +40,7 @@
                                 </label>
                                 <input
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="Jurusan"
+                                    id="jurusan"
                                     type="text"
                                     placeholder="Multimedia atau RPL"
                                 />
@@ -51,7 +51,7 @@
                                 </label>
                                 <input
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="Tempat"
+                                    id="tempat"
                                     type="text"
                                     placeholder="Tempat Siswa Prakerin"
                                 />
@@ -81,7 +81,7 @@
                                 />
                                 <p class="text-xs italic text-red-500">Tolong masukkan password yang mudah diingat siswa!.</p>
                             </div>
-                            
+
                         </div>
                         <div class="mb-6 text-center">
                             <button
