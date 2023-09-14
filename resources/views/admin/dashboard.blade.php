@@ -219,10 +219,22 @@
         </div>
         </section>
 
-
-
+ 
 
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+</body>
+
+</html>
+        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        </section>
+
+
+
 </body>
 
 </html>
