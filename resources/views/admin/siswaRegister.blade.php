@@ -38,12 +38,11 @@
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="lastName">
                                     Jurusan
                                 </label>
-                                <input
-                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                                    id="Jurusan"
-                                    type="text"
-                                    placeholder="Multimedia atau RPL"
-                                />
+                                <select
+                                    class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
+                                    <option value="1">Rekayasa Perangkat Lunak</option>
+                                    <option value="2">Multimedia</option>
+                            </select>
                             </div>
                             <div class="md:ml-2">
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="lastName">
