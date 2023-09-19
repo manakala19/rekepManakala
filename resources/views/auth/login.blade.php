@@ -54,7 +54,7 @@
                     </div>
                     <!-- fotooo -->
                     <div class="sm:block hidden w-1/2 p-5">
-                        <img class="  rounded-2xl " src="{{asset('assets/login.jpg')}}" alt="">
+                        <img class="  rounded-2xl " src="{{asset('../image/login.jpg')}}" alt="">
                     </div>
                 </div>
         
