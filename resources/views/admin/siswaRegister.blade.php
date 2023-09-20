@@ -40,11 +40,13 @@
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="lastName">
                                     Jurusan
                                 </label>
-                                <select
+                                <select name="jurusan"
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline">
-                                    <option value="1">Rekayasa Perangkat Lunak</option>
-                                    <option value="2">Multimedia</option>
-                            </select>
+                                    <option value>Pilih Jurusan</option>
+                                    @foreach ($jurusan as $row)
+                                    <option value="{{$row->id}}">{{$row->nama_jurusan}}</option>
+                                    @endforeach
+                                </select>
                             </div>
                             <div class="md:ml-2">
                                 <label class="block mb-2 text-sm font-bold text-gray-700" for="lastName">
@@ -96,17 +98,9 @@
                         <div class="text-center">
                             <a
                                 class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                href="#"
+                                href="../admin"
                             >
-                                Forgot Password?
-                            </a>
-                        </div>
-                        <div class="text-center">
-                            <a
-                                class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-                                href="#"
-                            >
-                                Already have an account? Login!
+                                Kembali?
                             </a>
                         </div>
                     </form>

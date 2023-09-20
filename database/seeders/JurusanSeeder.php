@@ -17,6 +17,8 @@ class JurusanSeeder extends Seeder
         DB::table('jurusan')->insert([
             'id' => '1',
             'nama_jurusan' => 'Rekayasa Perangkat Lunak',
+        ]);
+        DB::table('jurusan')->insert([
             'id' => '2',
             'nama_jurusan' => 'Multimedia',
         ]);

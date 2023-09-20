@@ -40,4 +40,4 @@ Route::get('/logout', [sessionController::class, 'actionlogout']);
 
 // misc
 // --------
-Route::get('/admin/search', [layoutController::class, 'search']);
+Route::get('/admin/search', [layoutController::class, 'adminDash']);
