@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class JurusanSeeder extends Seeder
 {
@@ -12,6 +14,11 @@ class JurusanSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('jurusan')->insert([
+            'id' => '1',
+            'nama_jurusan' => 'Rekayasa Perangkat Lunak',
+            'id' => '2',
+            'nama_jurusan' => 'Multimedia',
+        ]);
     }
 }

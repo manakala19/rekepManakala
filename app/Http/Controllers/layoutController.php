@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\siswa;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -31,5 +32,14 @@ class layoutController extends Controller
     }
     public function pAddLaporan(Request $request){
         $request->laporan_kegiatan();
+    }
+    public function search(Request $request){
+        if($request->has('search')){
+            $siswa = siswa::where('nama', 'LIKE', '%'.$request->search.'%')->get();
+        }else{
+            $siswa = siswa::all();
+        }
+
+        return view('admin.index', ['siswa' => $siswa]);
     }
 }

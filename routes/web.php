@@ -37,3 +37,7 @@ Route::post('/register', [sessionController::class, 'actionregister']);
 
 Route::get('/logout', [sessionController::class, 'actionlogout']);
 // --------
+
+// misc
+// --------
+Route::get('/admin/search', [layoutController::class, 'search']);
