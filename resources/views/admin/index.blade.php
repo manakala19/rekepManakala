@@ -46,12 +46,10 @@
                 class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
 
                 <div class="flex items-center space-x-3 w-full md:w-auto">
-                    <div
-                        class="relative rounded-2xl px-6 py-2  shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:px-10">
+                    <div class="relative rounded-2xl px-6 py-2  shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:px-10">
                         <div class="mx-auto max-w-md">
-                            <form action="" class="relative mx-auto w-max">
-                                <input type="search"
-                                    class="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-blue-500 focus:pl-16 focus:pr-4" />
+                            <form action="/admin/search" class="relative mx-auto w-max" method="GET">
+                                <input type="search" name="search"class="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-blue-500 focus:pl-16 focus:pr-4 text-white" />
                                 <svg xmlns="http://www.w3.org/2000/svg"
                                     class="absolute inset-y-0 my-auto h-8 w-12 border-r border-transparent stroke-gray-500 px-3.5 peer-focus:border-blue-500 peer-focus:stroke-blue-500"
                                     fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
