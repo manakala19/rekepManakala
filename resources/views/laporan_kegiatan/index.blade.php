@@ -34,7 +34,9 @@
         @endforeach
     </table>
     <a href="{{route('laporan_kegiatan.create')}}"><button>Tambah Laporan</button></a><br><br>
+    @if (auth()->user()->level == "admin")
     <a href="admin"><button>Admin Panel</button></a>
+    @endif
 
 </body>
 </html>

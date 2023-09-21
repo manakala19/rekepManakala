@@ -18,6 +18,14 @@ class usersTableSeeder extends Seeder
             'name'=>'irham',
             'jurusan_id'=>'1',
             'email'=>'irham@gmail.com',
+            'level'=>'admin',
+            'password'=>Hash::make('123')
+        ]);
+        DB::table('users')->insert([
+            'name'=>'rizqan',
+            'jurusan_id'=>'2',
+            'email'=>'rizqan@gmail.com',
+            'level'=>'user',
             'password'=>Hash::make('123')
         ]);
     }
