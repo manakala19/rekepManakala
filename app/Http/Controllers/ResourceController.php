@@ -3,14 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\laporan_kegiatan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ResourceController extends Controller
 {
     public function index(){
         $laporan_kegiatan = laporan_kegiatan::latest()->paginate(5);
-
-        return view('laporan_kegiatan.index',compact('laporan_kegiatan'));
+        $user = User::all();
+        return view('laporan_kegiatan.index',compact(['laporan_kegiatan','user']));
     }
 
     public function create(){
