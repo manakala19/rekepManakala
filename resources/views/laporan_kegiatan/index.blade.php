@@ -84,9 +84,7 @@
                                 tes</td>
 
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">ACC</a>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Lihat</a>
-                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Beri Catatan</a>
                             </td>
                         </tr>
                     {{-- @endforeach --}}
