@@ -7,9 +7,7 @@
     <title>Create Laporan</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <center>
-    <h1>Tambah Data</h1>
+<body class="bg-gray-900">
     <form action="{{route('laporan-kegiatan.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
             <!-- section mulaii      -->
@@ -23,11 +21,6 @@
                 </div>
 
                 <div>
-                    <label class="text-white dark:text-gray-200" for="emailAddress">Hari</label>
-                    <input id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-                </div>
-
-                <div>
                     <label class="text-white dark:text-gray-200" for="passwordConfirmation">Minggu Ke-</label>
                     <select class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                         <option>1</option>
@@ -38,7 +31,12 @@
                 </div>
 
                 <div>
-                    <label class="text-white dark:text-gray-200" for="passwordConfirmation">Tanggal</label>
+                    <label class="text-white dark:text-gray-200" for="passwordConfirmation">Tanggal Mulai</label>
+                    <input id="date" type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+
+                <div>
+                    <label class="text-white dark:text-gray-200" for="passwordConfirmation">Tanggal Selesai</label>
                     <input id="date" type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                 </div>
 
@@ -63,7 +61,7 @@
                   <span class="">Upload file</span>
                   <input id="file-upload" name="file-upload" type="file" class="sr-only">
                 </label>
-                <p class="pl-1 text-white">atau drag and drop</p>
+                <p class="pl-1 text-white">Lampiran Kegiatan</p>
               </div>
               <p class="text-xs text-white">
                 PNG, JPG, GIF sampai dengan 10MB
@@ -75,6 +73,5 @@
             <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-pink-500 rounded-md hover:bg-pink-700 focus:outline-none focus:bg-gray-600">Simpan</button>
         </div>
     </section>
-    </center>
 </body>
 </html>

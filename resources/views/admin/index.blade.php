@@ -82,7 +82,7 @@
                         </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase ">
                             Tempat Prakerin</th>
-                        <th scope="col" class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase">
+                        <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">
                             Aksi</th>
                     </tr>
                 </thead>
@@ -97,9 +97,11 @@
                                 {{ $row->jurusan_id }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                 {{ $row->tempat_prakerin }}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a class="text-blue-500 hover:text-blue-700" href="lihat-laporan">Lihat</a>
-                            </td>
+                                <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                    <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">ACC</a>
+                                    <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Lihat</a>
+                                    <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Beri Catatan</a>
+                                </td>
                         </tr>
                     @endforeach
                 </tbody>
