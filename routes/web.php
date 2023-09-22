@@ -27,9 +27,9 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,user']], function(){
     Route::get('/admin/registrasiSiswa', [layoutController::class, 'siswaRegister']);
     Route::post('/admin/registrasiSiswa', [layoutController::class, 'storeSiswaRegister']);
 });
-
+// lazyload // eagerload
 // resource (crud)
-Route::resource('laporan_kegiatan', ResourceController::class);
+Route::resource('laporan_kegiatan', ResourceController::class)->middleware('auth');
 // auth
 // --------
 Route::get('/login', [sessionController::class, 'login'])->middleware('guest');

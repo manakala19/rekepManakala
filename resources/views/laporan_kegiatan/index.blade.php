@@ -7,18 +7,18 @@
 
 <body class="bg-gray-900">
 
-        <nav class="fixed z-40 w-full border-b dark:border-gray-700 bg-white dark:bg-gray-800 md:absolute md:bg-transparent">
+        {{-- <nav class="fixed z-40 w-full border-b dark:border-gray-700 bg-white dark:bg-gray-800 md:absolute md:bg-transparent">
             <div class="container m-auto px-2 md:px-12 lg:px-7">
                 <div class="flex px-6 md:px-0 z-20 flex-wrap items-center justify-between py-3 gap-6 md:py-4 md:gap-0">
                     <input type="checkbox" name="" id="toggleNav" class="peer hidden">
-                    <label for="toggleNav" role="overlaynav" class="fixed left-0 top-0 transition-all 
-                    md:peer-checked:hidden md:hidden opacity-0 hidden peer-checked:z-0 
+                    <label for="toggleNav" role="overlaynav" class="fixed left-0 top-0 transition-all
+                    md:peer-checked:hidden md:hidden opacity-0 hidden peer-checked:z-0
                     peer-checked:opacity-75 peer-checked:block w-full h-screen
                     bg-gray-200 bg-opacity-75 dark:bg-darker dark:opacity-80"></label>
                     <div class="relative z-40 font-bold text-2xl text-white">
                         Rekep APP
                     </div>
-                    
+
                     <div id="navlinks"
                         class="fixed h-full w-4/5 max-w-sm top-0 -left-full peer-checked:-left-0 md:relative md:top-0 md:left-0 transition-all z-30 md:flex items-center p-8 bg-white dark:bg-gray-800 md:space-y-0 md:p-0 md:flex-nowrap md:bg-transparent md:w-max">
                         <div class="z-20 flex gap-8 md:gap-0 flex-col md:flex-row md:items-center w-full">
@@ -52,12 +52,14 @@
                                 </li>
                             </ul>
                             <div class="flex sm:hidden pt-4 w-full">
+                                <a href="admin">
                                 <button type="button" title="Start buying"
                                     class=" flex justify-center items-center w-full py-3 px-6 text-center rounded-full transition bg-gray-900 dark:bg-gray-700 hover:bg-cyan-500 active:bg-cyan-600 focus:bg-cyan-800">
                                     <span class="block text-white text-sm">
                                         Admin Panel
                                     </span>
                                 </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -81,7 +83,7 @@
                     </div>
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
 
     <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 block py-20">
@@ -122,23 +124,23 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                    @foreach($user as $row)
+                    {{-- @foreach($user as $row) --}}
                         <tr>
                             <td
                                 class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
-                                {{ $row-> }}</td>
+                                tes</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                {{ $row-> }}</td>
+                                tes</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                {{ $row-> }}</td>
+                                tes</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                {{ $row-> }}</td>
+                                tes</td>
 
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                                 <a class="text-blue-500 hover:text-blue-700" href="#">Lihat</a>
                             </td>
                         </tr>
-                    @endforeach
+                    {{-- @endforeach --}}
                 </tbody>
             </table>
         </div>
