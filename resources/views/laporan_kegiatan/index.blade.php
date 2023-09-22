@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -8,7 +7,6 @@
 
 <body class="bg-gray-900">
 
-    <header>
         <nav class="fixed z-40 w-full border-b dark:border-gray-700 bg-white dark:bg-gray-800 md:absolute md:bg-transparent">
             <div class="container m-auto px-2 md:px-12 lg:px-7">
                 <div class="flex px-6 md:px-0 z-20 flex-wrap items-center justify-between py-3 gap-6 md:py-4 md:gap-0">
@@ -84,9 +82,9 @@
                 </div>
             </div>
         </nav>
-    </header>
 
-    <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 block mt-60">
+
+    <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 block py-20">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
             <!-- start sinii  -->
 
