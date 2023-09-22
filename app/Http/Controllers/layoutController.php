@@ -16,7 +16,7 @@ class layoutController extends Controller
         if($request->has('search')){
             $user = User::where('name', 'LIKE', '%'.$request->search.'%')->get();
         }else{
-            $user = User::all();
+
         }
 
         return view('admin.index', ['siswa' => $user], compact('user'));
@@ -40,5 +40,8 @@ class layoutController extends Controller
     }
     public function pAddLaporan(Request $request){
         $request->laporan_kegiatan();
+    }
+    public function lihatLaporan(){
+        return view('viewLaporan');
     }
 }

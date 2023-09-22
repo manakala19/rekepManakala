@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class ResourceController extends Controller
 {
     public function index(){
-        $laporan_kegiatan = laporan_kegiatan::latest()->paginate(5);
+        $laporan_kegiatan = laporan_kegiatan::with('user')->latest()->paginate(5);
         $user = User::all();
         return view('laporan_kegiatan.index',compact(['laporan_kegiatan','user']));
     }
@@ -34,7 +34,7 @@ class ResourceController extends Controller
             $laporan_kegiatan->lampiran = $request->file('lampiran');
             $laporan_kegiatan->lampiran->storeAs('public/lampiran', "rekep_lampiranSiswa".uniqid().'.'.$laporan_kegiatan->lampiran->extension());
             $laporan_kegiatan->save();
-            return redirect()->route('laporan_kegiatan.index')->with('sukses','laporan kegiatan berhasil ditambahkan');
+            return redirect()->route('laporan-kegiatan.index')->with('sukses','laporan kegiatan berhasil ditambahkan');
     }
     public function show(laporan_kegiatan $laporan_kegiatan)
     {
@@ -56,6 +56,6 @@ class ResourceController extends Controller
 
         $laporan_kegiatan->update($request->all());
 
-        return redirect('laporan_kegiatan')->with('success','laporan_kegiatan updated successfully');
+        return redirect('laporan-kegiatan')->with('success','laporan_kegiatan updated successfully');
     }
 }

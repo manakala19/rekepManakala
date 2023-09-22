@@ -10,7 +10,7 @@
 <body>
     <center>
     <h1>Tambah Data</h1>
-    <form action="{{route('laporan_kegiatan.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('laporan-kegiatan.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
             <!-- section mulaii      -->
     <section class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-20 mb-20">

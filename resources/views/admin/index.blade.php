@@ -12,94 +12,39 @@
 
 <body class="bg-gray-900">
 
-    <header>
-        <nav class="fixed z-40 w-full border-b dark:border-gray-700 bg-white dark:bg-gray-800 md:absolute md:bg-transparent">
-            <div class="container m-auto px-2 md:px-12 lg:px-7">
-                <div class="flex px-6 md:px-0 z-20 flex-wrap items-center justify-between py-3 gap-6 md:py-4 md:gap-0">
-                    <input type="checkbox" name="" id="toggleNav" class="peer hidden">
-                    <label for="toggleNav" role="overlaynav" class="fixed left-0 top-0 transition-all 
-                    md:peer-checked:hidden md:hidden opacity-0 hidden peer-checked:z-0 
-                    peer-checked:opacity-75 peer-checked:block w-full h-screen
-                    bg-gray-200 bg-opacity-75 dark:bg-darker dark:opacity-80"></label>
-                    <div class="relative z-40 font-bold text-2xl text-white">
-                        Rekep APP
-                    </div>
-                    
-                    <div id="navlinks"
-                        class="fixed h-full w-4/5 max-w-sm top-0 -left-full peer-checked:-left-0 md:relative md:top-0 md:left-0 transition-all z-30 md:flex items-center p-8 bg-white dark:bg-gray-800 md:space-y-0 md:p-0 md:flex-nowrap md:bg-transparent md:w-max">
-                        <div class="z-20 flex gap-8 md:gap-0 flex-col md:flex-row md:items-center w-full">
-                            <ul class="pt-28 lg:pt-0 gap-8 tracking-wide font-medium flex-col flex md:flex-row md:gap-0">
-                                <li class="max-w-max">
-                                    <a href="#" class="block md:px-3">
-                                        <div
-                                            class="relative text-cyan-800 dark:text-white
-                                                    before:absolute before:-bottom-2 md:before:-bottom-7 before:w-full before:h-0.5 before:mx-auto before:mt-auto before:rounded-full before:bg-cyan-800 dark:before:bg-cyan-400">
-                                            <span>Profil</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="max-w-max">
-                                    <a href="#" class="block md:px-3 group">
-                                        <div
-                                            class="relative text-gray-600 dark:text-gray-300
-                                                    before:absolute before:-bottom-2 md:before:-bottom-7 before:origin-left before:w-full before:h-0.5 before:mx-auto before:mt-auto before:rounded-full before:bg-cyan-800 dark:before:bg-cyan-400 before:transition before:scale-x-0 group-hover:before:scale-x-100">
-                                            <span class="transition group-hover:text-cyan-700 dark:group-hover:text-cyan-400">Projek</span>
-                                        </div>
-                                    </a>
-                                </li>
-                                <li class="max-w-max">
-                                    <a href="#" class="block md:px-3 group">
-                                        <div
-                                            class="relative text-gray-600 dark:text-gray-300
-                                                    before:absolute before:-bottom-2 md:before:-bottom-7 before:origin-left before:w-full before:h-0.5 before:mx-auto before:mt-auto before:rounded-full before:bg-cyan-800 dark:before:bg-cyan-400 before:transition before:scale-x-0 group-hover:before:scale-x-100">
-                                            <span class="transition group-hover:text-cyan-700 dark:group-hover:text-cyan-400">Logout</span>
-                                        </div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="flex sm:hidden pt-4 w-full">
-                                <button type="button" title="Start buying"
-                                    class=" flex justify-center items-center w-full py-3 px-6 text-center rounded-full transition bg-gray-900 dark:bg-gray-700 hover:bg-cyan-500 active:bg-cyan-600 focus:bg-cyan-800">
-                                    <span class="block text-white text-sm">
-                                        Admin Panel
-                                    </span>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="block-endnav w-max flex items-center gap-4">
-                        <button type="button" title="Start buying"
-                            class="hidden sm:block w-full py-3 px-6 text-center rounded-full transition bg-gray-900 dark:bg-gray-700 hover:bg-cyan-500 active:bg-cyan-600 focus:bg-cyan-800 sm:w-max">
-                            <span class="block text-white text-sm">
-                                Admin Panel
-                            </span>
-                        </button>
-
-                        <div class="flex items-center md:hidden max-h-10">
-                            <label role="button" for="toggleNav" aria-label="humburger" id="hamburger" class="relative  p-6 -mr-6">
-                                <div role="hidden" id="line"
-                                    class="m-auto h-0.5 w-6 rounded bg-sky-900 dark:bg-gray-200 transition duration-300"></div>
-                                <div role="hidden" id="line2"
-                                    class="m-auto mt-2 h-0.5 w-6 rounded bg-sky-900 dark:bg-gray-200 transition duration-300">
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
+    <header class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
+        <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between" aria-label="Global">
+          <div class="flex items-center justify-between">
+            <a class="flex-none text-xl font-semibold dark:text-white" href="#">Rekep App</a>
+            <div class="sm:hidden">
+              <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
+                <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                </svg>
+                <svg class="hs-collapse-open:block hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg>
+              </button>
             </div>
+          </div>
+          <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
+            <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
+              <a class="font-medium text-blue-500" href="#" aria-current="page">Admin Tools</a>
+              <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500" href="/logout">Logout</a>
+            </div>
+          </div>
         </nav>
     </header>
 
-    <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 mt-16">
+    <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 mt-2">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
             <!-- start sinii  -->
-
 
             <div
                 class="w-full md:w-auto flex flex-col md:flex-row space-y-2 md:space-y-0 items-stretch md:items-center justify-end md:space-x-3 flex-shrink-0">
 
                 <div class="flex items-center space-x-3 w-full md:w-auto">
-                    <div class="relative rounded-2xl px-6 py-2  shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:px-10">
+                    <div class="relative rounded-2xl px-6 py-0  shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:px-10">
                         <div class="mx-auto max-w-md">
                             <form action="/admin/search" class="relative mx-auto w-max" method="GET">
                                 <input type="search" name="search"class="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-blue-500 focus:pl-16 focus:pr-4 text-white" />
@@ -112,7 +57,7 @@
                             </form>
                         </div>
                     </div>
-                    <a href="admin/registrasiSiswa">
+                    <a href="registrasi-siswa">
                         <button type="button"
                             class="flex items-center justify-center text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800">
                             <svg class="h-3.5 w-3.5 mr-2" fill="currentColor" viewbox="0 0 20 20"
@@ -142,7 +87,7 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-                    
+
                     @foreach($user as $row)
                     <tr>
                             <td
@@ -153,7 +98,7 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                 {{ $row->tempat_prakerin }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                <a class="text-blue-500 hover:text-blue-700" href="#">Lihat</a>
+                                <a class="text-blue-500 hover:text-blue-700" href="lihat-laporan">Lihat</a>
                             </td>
                         </tr>
                     @endforeach

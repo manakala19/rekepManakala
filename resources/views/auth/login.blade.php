@@ -15,15 +15,15 @@
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <script src="https://cdn.tailwindcss.com"></script>
         </head>
-        <body>
+        <body class="bg-gray-800">
 
-            <section class="bg-gray-50 min-h-screen flex items-center justify-center">
+            <section class="bg-gray-900 min-h-screen flex items-center justify-center">
                 <!-- login kontener -->
-                <div class="bg-gray-100 flex rounded-2xl shadow-lg max-w-3xl p-5">
+                <div class="bg-gray-900 flex rounded-2xl shadow-lg max-w-3xl p-5">
                     <!-- forms -->
                     <div class="sm:w-1/2 px-16">
-                        <h2 class="font-bold text-2xl text-blue-800"> Login</h2>
-                        <p class="font-bold text-xl mt-4 text-blue-800"> Rekep APP </p>
+                        <h2 class="font-bold text-4xl text-white"> Login</h2>
+                        <p class="font-bold text-xl mt-4 text-white"> Rekep APP </p>
                         <form action="login" method="POST" class="flex flex-col gap-4">
                             @csrf
                             <input class="p-2 mt-8 rounded-xl border w-full" type="email" name="email" placeholder="Email">
@@ -53,7 +53,7 @@
                         </button>
                         </a>
 
-                        <p class="mt-10 text-xs">Lupa Password?</p>
+                        <p class="mt-10 text-xs text-white">Lupa Password?</p>
 
                     </div>
                     <!-- fotooo -->

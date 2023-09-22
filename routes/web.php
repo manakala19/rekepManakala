@@ -20,27 +20,26 @@ use Symfony\Component\CssSelector\Node\FunctionNode;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dashboard', [layoutController::class, 'index'])->middleware('auth');
 
 Route::group(['middleware' => ['auth', 'ceklevel:admin,user']], function(){
+    Route::get('/dashboard', [layoutController::class, 'index']);
+    Route::resource('laporan-kegiatan', ResourceController::class);
+    Route::get('/lihat-laporan', [layoutController::class, 'lihatLaporan']);
+});
+Route::group(['middleware' => ['auth', 'ceklevel:admin']], function(){
     Route::get('/admin', [layoutController::class, 'adminDash']);
-    Route::get('/admin/registrasiSiswa', [layoutController::class, 'siswaRegister']);
-    Route::post('/admin/registrasiSiswa', [layoutController::class, 'storeSiswaRegister']);
+    Route::get('/admin/registrasi-siswa', [layoutController::class, 'siswaRegister']);
+    Route::post('/admin/registrasi-siswa', [layoutController::class, 'storeSiswaRegister']);
+    Route::get('registrasi-siswa', [layoutController::class, 'siswaRegister']);
+    Route::post('registrasi-siswa', [layoutController::class, 'storeSiswaRegister']);
+    Route::get('/admin/search', [layoutController::class, 'adminDash']);
 });
 // lazyload // eagerload
-// resource (crud)
-Route::resource('laporan_kegiatan', ResourceController::class)->middleware('auth');
-// auth
-// --------
-Route::get('/login', [sessionController::class, 'login'])->middleware('guest');
-Route::post('/login', [sessionController::class, 'actionlogin']);
+Route::group(['middleware' => ['guest']], function(){
+    Route::get('/login', [sessionController::class, 'login'])->name('login');
+    Route::post('/login', [sessionController::class, 'actionlogin']);
 
-Route::get('/register', [sessionController::class, 'register'])->middleware('guest');
-Route::post('/register', [sessionController::class, 'actionregister']);
-
+    Route::get('/register', [sessionController::class, 'register']);
+    Route::post('/register', [sessionController::class, 'actionregister']);
+});
 Route::get('/logout', [sessionController::class, 'actionlogout']);
-// --------
-
-// misc
-// --------
-Route::get('/admin/search', [layoutController::class, 'adminDash']);

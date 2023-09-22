@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('laporan_kegiatan', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index()->nullable();
-            $table->date('tanggal');
-            $table->string('hari');
             $table->tinyInteger('minggu_ke');
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_selesai'); 
             $table->string('kegiatan_kerja_harian');
             $table->longText('catatan_pembimbing')->nullable();
             $table->boolean('status_laporan')->nullable();
