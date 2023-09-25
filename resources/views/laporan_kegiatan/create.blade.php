@@ -8,10 +8,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-900">
+
+  <nav class="relative flex w-full flex-wrap items-center justify-between bg-gray-900 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-gray-900 lg:mt-3">
+    <div class="flex w-full flex-wrap items-center justify-between px-3">
+        <a class="ml-2 text-3xl text-white dark:text-neutral-200" href="#">Rekep App</a>
+        <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
+            <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
+                href="/logout">Logout</a>
+        </div>
+    </div>
+</nav>
+
     <form action="{{route('laporan-kegiatan.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
             <!-- section mulaii      -->
-    <section class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-20 mb-20">
+    <section class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-10 mb-20">
         <h1 class="text-xl font-bold text-white capitalize dark:text-white">Input Laporan</h1>
         <form action="" method="POST">
             <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
