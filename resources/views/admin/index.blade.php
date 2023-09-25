@@ -12,16 +12,14 @@
 
 <body class="bg-gray-900">
 
-    
-        <nav
-        class="relative flex w-full flex-wrap items-center justify-between bg-gray-900 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-gray-900 lg:mt-3">
+
+    <nav class="relative flex w-full flex-wrap items-center justify-between bg-gray-900 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-gray-900 lg:mt-3">
         <div class="flex w-full flex-wrap items-center justify-between px-3">
-            <a class="ml-2 text-3xl text-white dark:text-neutral-200" href="#">Rekep App</a>
+            <a class="ml-2 text-3xl text-white dark:text-neutral-200" href="laporan-kegiatan">Rekep App</a>
 
             <div class="ml-5 flex w-[30%] items-center justify-between">
-                <input type="search"
-                    class="relative m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none motion-reduce:transition-none dark:border-blue-500 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary"
-                    placeholder="Search" aria-label="Search" aria-describedby="button-addon2" />
+                <form action="/admin/search" method="GET">
+                <input type="search" name="search" class="relative m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none motion-reduce:transition-none dark:border-blue-500 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" /></form>
 
                 <!--Search icon-->
                 <span
@@ -35,7 +33,9 @@
                 </span>
             </div>
             <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
-                <a class="font-medium text-blue-500" href="#" aria-current="page">Admin Tools</a>
+                @if (auth()->user()->level == "admin")
+                <a class="font-medium text-blue-500" href="/admin" aria-current="page">Admin Tools</a>
+                @endif
                 <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
                     href="/logout">Logout</a>
             </div>
@@ -90,10 +90,11 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                 {{ $row->tempat_prakerin }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                <form action="acc-laporan" method="POST">
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">ACC</a>
+                                </form>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Lihat</a>
-                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Beri
-                                    Catatan</a>
+                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="admin/beri-catatan">Beri Catatan</a>
                             </td>
                         </tr>
                     @endforeach

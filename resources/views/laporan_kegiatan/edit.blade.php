@@ -9,10 +9,14 @@
 </head>
 <body class="bg-gray-900">
 
-  <nav class="relative flex w-full flex-wrap items-center justify-between bg-gray-900 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-gray-900 lg:mt-3">
+
+<nav class="relative flex w-full flex-wrap items-center justify-between bg-gray-900 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-gray-900 lg:mt-3">
     <div class="flex w-full flex-wrap items-center justify-between px-3">
-        <a class="ml-2 text-3xl text-white dark:text-neutral-200" href="#">Rekep App</a>
+        <a class="ml-2 text-3xl text-white dark:text-neutral-200" href="laporan-kegiatan">Rekep App</a>
         <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
+            @if (auth()->user()->level == "admin")
+            <a class="font-medium text-blue-500" href="/admin" aria-current="page">Admin Tools</a>
+            @endif
             <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
                 href="/logout">Logout</a>
         </div>

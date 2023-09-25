@@ -33,6 +33,8 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function(){
     Route::get('registrasi-siswa', [layoutController::class, 'siswaRegister']);
     Route::post('registrasi-siswa', [layoutController::class, 'storeSiswaRegister']);
     Route::get('/admin/search', [layoutController::class, 'adminDash']);
+    Route::get('/admin/acc-laporan', [layoutController::class, 'accLaporan']);
+    Route::get('/admin/beri-catatan', [layoutController::class, 'beriCatatan']);
 });
 // lazyload // eagerload
 Route::group(['middleware' => ['guest']], function(){

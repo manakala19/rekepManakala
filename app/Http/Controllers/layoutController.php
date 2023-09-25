@@ -44,4 +44,13 @@ class layoutController extends Controller
     public function lihatLaporan(){
         return view('viewLaporan');
     }
+    public function accLaporan(){
+
+    }
+    public function beriCatatan(){
+        return view('admin.catatan');
+    }
+    public function storeCatatan(){
+
+    }
 }
