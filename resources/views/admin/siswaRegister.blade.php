@@ -66,12 +66,12 @@
                             <label class="block mb-2 text-sm font-bold text-gray-300" for="lastName">
                                 Level
                             </label>
-                            <select name="jurusan"
+                            <select name="level"
                                 class="w-full px-3 py-2 text-sm leading-tight text-gray-300 border rounded shadow appearance-none focus:outline-none focus:shadow-outline bg-gray-800">
                                 <option value>Pilih Level</option>
-                                <option>Admin</option>
-                                <option>User</option>
-                                
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
+
                             </select>
                         </div>
 
@@ -99,7 +99,7 @@
                                     type="password"
                                     placeholder="******************"
                                 />
-                        
+
                             </div>
 
                         </div>

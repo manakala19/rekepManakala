@@ -22,7 +22,6 @@
             </div>
         </div>
     </nav>
-
     <div class="py-20">
         <div class="xl:container mx-auto px-10 md:px-18">
             <div class="mb-16 md:w-2/3 lg:w-1/2">
@@ -41,11 +40,12 @@
                     <div
                         class="absolute bottom-0 inset-x-0 h-max mt-auto px-8 py-6 bg-gray-800 dark:bg-white translate-y-24 transition duration-300 ease-in-out group-hover:translate-y-0">
                         <div>
+                        @foreach ($laporan_kegiatan_data as $lapkeg)
                             <h4 class="text-xl font-semibold dark:text-gray-700 text-white">Agustus</h4>
-                            <span class="block text-sm text-gray-500">"nama tempat PKL ham"</span>
+                            <span class="block text-sm text-gray-500">{{$lapkeg->user->tempat_prakerin}}</span>
                         </div>
                         <p class="mt-6 text-gray-300 dark:text-gray-600">Rekap Laporan Kegiatan Mingguan Prakerin
-                            di "get tempat PKL ham" selama bulan Agustus
+                            di {{$lapkeg->user->tempat_prakerin}} selama bulan Agustus
                         </p>
                     </div>
 
@@ -58,10 +58,10 @@
                         class="absolute bottom-0 inset-x-0 h-max mt-auto px-8 py-6 bg-gray-800 dark:bg-white translate-y-24 transition duration-300 ease-in-out group-hover:translate-y-0">
                         <div>
                             <h4 class="text-xl font-semibold dark:text-gray-700 text-white">September</h4>
-                            <span class="block text-sm text-gray-500">"get tempat PKL ham"</span>
+                            <span class="block text-sm text-gray-500">{{$lapkeg->user->tempat_prakerin}}</span>
                         </div>
                         <p class="mt-8 text-gray-300 dark:text-gray-600">Rekap Laporan Kegiatan Mingguan Prakerin
-                            di "get tempat PKL ham" selama bulan September</p>
+                            di {{$lapkeg->user->tempat_prakerin}} selama bulan September</p>
                     </div>
 
                 </div>
@@ -73,10 +73,11 @@
                         class="absolute bottom-0 inset-x-0 h-max mt-auto px-8 py-6 bg-gray-800 dark:bg-white translate-y-24 transition duration-300 ease-in-out group-hover:translate-y-0">
                         <div>
                             <h4 class="text-xl font-semibold dark:text-gray-700 text-white">Oktober</h4>
-                            <span class="block text-sm text-gray-500">"get tempat PKL ham"</span>
+                            <span class="block text-sm text-gray-500">{{$lapkeg->user->tempat_prakerin}}</span>
                         </div>
                         <p class="mt-8 text-gray-300 dark:text-gray-600">Rekap Laporan Kegiatan Mingguan Prakerin
-                            di "get tempat PKL ham" selama bulan Oktober </p>
+                            di {{$lapkeg->user->tempat_prakerin}} selama bulan Oktober </p>
+                    @endforeach
                     </div>
 
                 </div>

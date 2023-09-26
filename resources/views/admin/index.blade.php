@@ -43,8 +43,8 @@
     </nav>
 
     <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 mt-2">
-        <div class="mb-3 inline-flex w-full items-center rounded-lg bg-green-300 px-6 py-5 text-base text-green-600"
-        role="alert">
+    @if (session('sukses'))
+    <div class="mb-3 inline-flex w-full items-center rounded-lg bg-green-300 px-6 py-5 text-base text-green-600" role="alert">
         <span class="mr-2">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
                 <path fill-rule="evenodd"
@@ -52,8 +52,9 @@
                     clip-rule="evenodd" />
             </svg>
         </span>
-        Laporan Berhasil di ACC!
+        {{session('sukses')}}
     </div>
+    @endif
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
             <!-- start sinii  -->
             <div class="flex items-center space-x-3 w-full md:w-auto">
@@ -91,7 +92,7 @@
                                 {{ $row->tempat_prakerin }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                 <form action="acc-laporan" method="POST">
-                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">ACC</a>
+                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="admin/acc-laporan">ACC</a>
                                 </form>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Lihat</a>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="admin/beri-catatan">Beri Catatan</a>

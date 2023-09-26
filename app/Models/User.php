@@ -46,6 +46,6 @@ class User extends Authenticatable
     ];
     public function laporan_kegiatan(): BelongsTo
     {
-        return $this->belongsTo(laporan_kegiatan::class, 'user_id');
+        return $this->belongsTo(laporan_kegiatan::class);
     }
 }

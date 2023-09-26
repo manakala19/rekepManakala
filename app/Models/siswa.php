@@ -13,7 +13,7 @@ class siswa extends Model
 
     public function laporan_kegiatan(): HasMany
     {
-        return $this->hasMany(laporan_kegiatan::class, 'siswa_id');
+        return $this->hasMany(laporan_kegiatan::class);
     }
     public function nilai(): HasMany
     {

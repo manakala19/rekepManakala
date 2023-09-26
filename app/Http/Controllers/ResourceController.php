@@ -4,14 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\laporan_kegiatan;
 use App\Models\User;
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 
 class ResourceController extends Controller
 {
     public function index(){
-        $laporan_kegiatan = laporan_kegiatan::with('user')->latest()->paginate(5);
-        $user = User::all();
-        return view('laporan_kegiatan.index',compact(['laporan_kegiatan','user']));
+        $laporan_kegiatan_data = laporan_kegiatan::with(['user'=>function ($q){
+            $q->where('id', auth()->user()->id);
+        }])->get();
+        return view('laporan_kegiatan.index',compact(['laporan_kegiatan_data']));
     }
 
     public function create(){
@@ -20,21 +22,22 @@ class ResourceController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'tanggal' => 'required',
-            'hari' => 'required',
+            'user_id' => 'required',
             'minggu_ke' => 'required',
-            'kegiatan_kerja_harian' => 'required',
+            'tanggal_mulai' => 'required',
+            'tanggal_selesai' => 'required',
+            'uraian_kegiatan' => 'required',
         ]);
             $laporan_kegiatan = new laporan_kegiatan;
             $laporan_kegiatan->user_id = $request->user_id;
-            $laporan_kegiatan->tanggal = $request->tanggal;
-            $laporan_kegiatan->hari = $request->hari;
             $laporan_kegiatan->minggu_ke = $request->minggu_ke;
-            $laporan_kegiatan->kegiatan_kerja_harian = $request->kegiatan_kerja_harian;
-            $laporan_kegiatan->lampiran = $request->file('lampiran');
-            $laporan_kegiatan->lampiran->storeAs('public/lampiran', "rekep_lampiranSiswa".uniqid().'.'.$laporan_kegiatan->lampiran->extension());
+            $laporan_kegiatan->tanggal_mulai = $request->tanggal_mulai;
+            $laporan_kegiatan->tanggal_selesai = $request->tanggal_selesai;
+            $laporan_kegiatan->uraian_kegiatan = $request->uraian_kegiatan;
+            // $laporan_kegiatan->lampiran = $request->file('lampiran');
+            // $laporan_kegiatan->lampiran->storeAs('public/lampiran', "rekep_lampiranSiswa".uniqid().'.'.$laporan_kegiatan->lampiran->extension());
             $laporan_kegiatan->save();
-            return redirect()->route('laporan-kegiatan.index')->with('sukses','laporan kegiatan berhasil ditambahkan');
+            return redirect()->route('laporan-kegiatan.index')->with('sukses','Laporan kegiatan berhasil ditambahkan');
     }
     public function show(laporan_kegiatan $laporan_kegiatan)
     {

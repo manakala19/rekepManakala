@@ -13,12 +13,13 @@ class laporan_kegiatan extends Model
     protected $table = 'laporan_kegiatan';
     protected $guarded = [];
 
-    public function siswa(): BelongsTo{
-        return $this->belongsTo(laporan_kegiatan::class, 'laporan_kegiatan_id');
+    public function siswa(){
+        return $this->belongsTo(User::class);
     }
 
-    public function User(): HasMany{
-        return $this->hasMany(laporan_kegiatan::class, 'laporan_kegiatan_id');
+    public function User(){
+
+        return $this->belongsTo(User::class);
     }
 }
 

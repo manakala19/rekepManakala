@@ -16,10 +16,10 @@ return new class extends Migration
             $table->bigInteger('user_id')->unsigned()->index()->nullable();
             $table->tinyInteger('minggu_ke');
             $table->date('tanggal_mulai');
-            $table->date('tanggal_selesai'); 
-            $table->string('kegiatan_kerja_harian');
+            $table->date('tanggal_selesai');
+            $table->longText('uraian_kegiatan');
             $table->longText('catatan_pembimbing')->nullable();
-            $table->boolean('status_laporan')->nullable();
+            $table->boolean('status_laporan')->default(false);
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -15,17 +15,19 @@ class usersTableSeeder extends Seeder
     public function run(): void
     {
         DB::table('users')->insert([
-            'name'=>'irham',
+            'name'=>'Irham Rizqan Zakiy',
             'jurusan_id'=>'1',
+            'tempat_prakerin'=>'Bappeda',
             'email'=>'irham@gmail.com',
             'level'=>'admin',
             'password'=>Hash::make('123')
         ]);
         DB::table('users')->insert([
-            'name'=>'rizqan',
-            'jurusan_id'=>'2',
+            'name'=>'Rizqan Fajar',
+            'jurusan_id'=>'1',
+            'tempat_prakerin'=>'Bappeda',
             'email'=>'rizqan@gmail.com',
-            'level'=>'user',
+            'level'=>'admin',
             'password'=>Hash::make('123')
         ]);
     }
