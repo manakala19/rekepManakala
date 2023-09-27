@@ -13,28 +13,32 @@
 <body class="bg-gray-900">
 
 
-    <nav class="relative flex w-full flex-wrap items-center justify-between bg-gray-900 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-gray-900 lg:mt-3">
+    <nav
+        class="relative flex w-full flex-wrap items-center justify-between bg-gray-900 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-gray-900 lg:mt-3">
         <div class="flex w-full flex-wrap items-center justify-between px-3">
             <a class="ml-2 text-3xl text-white dark:text-neutral-200" href="laporan-kegiatan">Rekep App</a>
 
-            <div class="ml-5 flex w-[30%] items-center justify-between">
-                <form action="/admin/search" method="GET">
-                <input type="search" name="search" class="relative m-0 block w-[1px] min-w-0 flex-auto rounded border border-solid border-neutral-300 bg-transparent bg-clip-padding px-3 py-[0.25rem] text-base font-normal leading-[1.6] text-white outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-white focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none motion-reduce:transition-none dark:border-blue-500 dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:focus:border-primary" placeholder="Search" aria-label="Search" aria-describedby="button-addon2" /></form>
-
-                <!--Search icon-->
-                <span
-                    class="input-group-text flex items-center whitespace-nowrap rounded px-3 py-1.5 text-center text-base font-normal text-neutral-700 dark:text-neutral-200"
-                    id="basic-addon2">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-5 w-5">
-                        <path fill-rule="evenodd"
-                            d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                            clip-rule="evenodd" />
-                    </svg>
-                </span>
+            <!-- component -->
+            <div class="flex items-center justify-center bg-gray-800">
+                <form method="GET">
+                    <div class="relative text-gray-600 focus-within:text-gray-400">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+                            <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
+                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                    stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6">
+                                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </button>
+                        </span>
+                        <input type="search" name="search"
+                            class="py-2 text-sm text-white bg-gray-900 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900"
+                            placeholder="Search..." autocomplete="off">
+                    </div>
+                </form>
             </div>
             <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
-                @if (auth()->user()->level == "admin")
-                <a class="font-medium text-blue-500" href="/admin" aria-current="page">Admin Tools</a>
+                @if(auth()->user()->level == "admin")
+                    <a class="font-medium text-blue-500" href="/admin" aria-current="page">Admin Tools</a>
                 @endif
                 <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
                     href="/logout">Logout</a>
@@ -43,18 +47,19 @@
     </nav>
 
     <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 mt-2">
-    @if (session('sukses'))
-    <div class="mb-3 inline-flex w-full items-center rounded-lg bg-green-300 px-6 py-5 text-base text-green-600" role="alert">
-        <span class="mr-2">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
-                <path fill-rule="evenodd"
-                    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
-                    clip-rule="evenodd" />
-            </svg>
-        </span>
-        {{session('sukses')}}
-    </div>
-    @endif
+        @if(session('sukses'))
+            <div class="mb-3 inline-flex w-full items-center rounded-lg bg-green-300 px-6 py-5 text-base text-green-600"
+                role="alert">
+                <span class="mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                        <path fill-rule="evenodd"
+                            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </span>
+                {{ session('sukses') }}
+            </div>
+        @endif
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
             <!-- start sinii  -->
             <div class="flex items-center space-x-3 w-full md:w-auto">
@@ -92,10 +97,12 @@
                                 {{ $row->tempat_prakerin }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                 <form action="acc-laporan" method="POST">
-                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="admin/acc-laporan">ACC</a>
+                                    <a class="text-blue-500 hover:text-blue-700 block mb-2"
+                                        href="admin/acc-laporan">ACC</a>
                                 </form>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Lihat</a>
-                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="admin/beri-catatan">Beri Catatan</a>
+                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="admin/beri-catatan">Beri
+                                    Catatan</a>
                             </td>
                         </tr>
                     @endforeach
