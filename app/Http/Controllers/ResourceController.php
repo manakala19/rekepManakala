@@ -21,20 +21,23 @@ class ResourceController extends Controller
     }
 
     public function store(Request $request){
-        $request->validate([
-            'user_id' => 'required',
-            'minggu_ke' => 'required',
-            'tanggal_mulai' => 'required',
-            'tanggal_selesai' => 'required',
-            'uraian_kegiatan' => 'required',
-        ]);
+        // $request->validate([
+        //     'user_id' => 'required',
+        //     'minggu_ke' => 'required',
+        //     'tanggal_mulai' => 'required',
+        //     'tanggal_selesai' => 'required',
+        //     'uraian_kegiatan' => 'required',
+        // ]);
             $laporan_kegiatan = new laporan_kegiatan;
             $laporan_kegiatan->user_id = $request->user_id;
             $laporan_kegiatan->minggu_ke = $request->minggu_ke;
             $laporan_kegiatan->tanggal_mulai = $request->tanggal_mulai;
             $laporan_kegiatan->tanggal_selesai = $request->tanggal_selesai;
             $laporan_kegiatan->uraian_kegiatan = $request->uraian_kegiatan;
-            // $laporan_kegiatan->lampiran = $request->file('lampiran');
+            $laporan_kegiatan->lampiran_kegiatan = $request->file('lampiran_kegiatan');
+            $nama_gambar = $laporan_kegiatan->lampiran_kegiatan->getClientOriginalName();
+            $extensi = $laporan_kegiatan->lampiran_kegiatan->clientExtension();
+            $laporan_kegiatan->lampiran_kegiatan->storeAs('public/lampiran_kegiatan/', $nama_gambar.".".$extensi);
             // $laporan_kegiatan->lampiran->storeAs('public/lampiran', "rekep_lampiranSiswa".uniqid().'.'.$laporan_kegiatan->lampiran->extension());
             $laporan_kegiatan->save();
             return redirect()->route('laporan-kegiatan.index')->with('sukses','Laporan kegiatan berhasil ditambahkan');

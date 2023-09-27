@@ -62,6 +62,6 @@ class layoutController extends Controller
         return view('admin.catatan');
     }
     public function storeCatatan(){
-
+        
     }
 }

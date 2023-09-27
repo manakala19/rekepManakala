@@ -19,6 +19,7 @@ return new class extends Migration
             $table->date('tanggal_selesai');
             $table->longText('uraian_kegiatan');
             $table->longText('catatan_pembimbing')->nullable();
+            $table->string('lampiran_kegiatan');
             $table->boolean('status_laporan')->default(false);
             $table->timestamps();
 

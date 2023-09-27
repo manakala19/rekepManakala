@@ -35,6 +35,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function(){
     Route::get('/admin/search', [layoutController::class, 'adminDash']);
     Route::get('/admin/acc-laporan', [layoutController::class, 'accLaporan']);
     Route::get('/admin/beri-catatan', [layoutController::class, 'beriCatatan']);
+    Route::post('/admin/beri-catatan', [layoutController::class, 'storeBeriCatatan']);
 });
 // lazyload // eagerload
 Route::group(['middleware' => ['guest']], function(){
