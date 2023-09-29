@@ -18,28 +18,19 @@
             </div>
         </div>
     </nav>
-<form action="" method="POST">
-    <div class="space-y-12">
-        <div class="bg-gray-900 border-b border-gray-900/10 pb-12">
-            <h2 class="text-base font-semibold leading-7 text-gray-900">Profil</h2>
-            <p class="mt-1 text-sm leading-6 text-gray-600">Informasi Mengenai Profil siswa ham, contoh :nama, jurusan, tempat pkl</p>
-            <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                <div class="col-span-full">
-                        <label for="about" class="block text-sm font-medium leading-6 text-white">Catatan</label>
-                        <div class="mt-2">
-                            <textarea id="about" name="about" rows="3"
-                                class="block w-1/2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
-                        </div>
-                        <p class="mt-3 text-sm leading-6 text-gray-600">Tulis catatan untuk siswa/i bimbingan anda!</p>
-                </div>
+    <section class="p-6 dark:text-gray-100">
+        <form action="" method="POST" class="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow dark:bg-gray-900">
+            <h2 class="w-full text-3xl font-bold leadi">Catatan Laporan</h2>
+            
+            <div>
+                <label for="message" class="block mb-3 ml-1">Catatan untuk Laporan</label>
+                <textarea id="message" type="text" placeholder="Message..." class="block w-full p-2 rounded autoexpand focus:outline-none focus:ring focus:ri focus:ri dark:bg-gray-800"></textarea>
             </div>
-        </div>
-    </div>
-        <div class="mt-6 flex items-center justify-end gap-x-6">
-            <button type="button" class="text-sm font-semibold leading-6 text-white">Batalkan</button>
-            <button type="submit"
-                class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Simpan</button>
-        </div>
-</form>
+            <div>
+                <button type="submit" class="w-full px-4 py-2 font-bold rounded shadow focus:outline-none focus:ring hover:ring focus:ri dark:bg-blue-400 focus:ri hover:ri dark:text-white">Kirim</button>
+            </div>
+        </form>
+    </section>
+
 </body>
 </html>
