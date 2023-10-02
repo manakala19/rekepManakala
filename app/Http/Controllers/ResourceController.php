@@ -23,13 +23,16 @@ class ResourceController extends Controller
     public function store(Request $request){
         // $request->validate([
         //     'user_id' => 'required',
+        //     'bulan' => 'required',
         //     'minggu_ke' => 'required',
         //     'tanggal_mulai' => 'required',
         //     'tanggal_selesai' => 'required',
         //     'uraian_kegiatan' => 'required',
+        //     'lampiran_kegiatan' => 'required',
         // ]);
             $laporan_kegiatan = new laporan_kegiatan;
             $laporan_kegiatan->user_id = $request->user_id;
+            $laporan_kegiatan->bulan = $request->bulan;
             $laporan_kegiatan->minggu_ke = $request->minggu_ke;
             $laporan_kegiatan->tanggal_mulai = $request->tanggal_mulai;
             $laporan_kegiatan->tanggal_selesai = $request->tanggal_selesai;

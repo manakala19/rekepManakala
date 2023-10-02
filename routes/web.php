@@ -22,7 +22,6 @@ Route::get('/', function () {
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:admin,user']], function(){
-    Route::get('/dashboard', [layoutController::class, 'index']);
     Route::resource('laporan-kegiatan', ResourceController::class);
     Route::get('/lihat-laporan', [layoutController::class, 'lihatLaporan']);
 });
