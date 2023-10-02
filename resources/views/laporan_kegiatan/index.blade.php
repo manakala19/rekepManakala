@@ -40,6 +40,7 @@
             <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
                 <thead>
                     <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase ">Bulan</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase ">Minggu ke</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tanggal Mulai</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tanggal Selesai</th>
@@ -51,11 +52,12 @@
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700 text-white">
                     @foreach($laporan_kegiatan_data as $lapkeg)
                         <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->bulan}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->minggu_ke}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->tanggal_mulai}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->tanggal_selesai}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->uraian_kegiatan}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{asset('lampiran_image/'. $lapkeg->lampiran_kegiatan)}}" target="_blank"></a>Lihat Lampiran</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{ asset('lampiran_image/'. $lapkeg->lampiran_kegiatan)}}" target="_blank" rel="noopener norefferer">Lihat Lampiran</a></td>
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                 {{-- <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Lihat</a>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('laporan-kegiatan.edit')}}">Edit</a>

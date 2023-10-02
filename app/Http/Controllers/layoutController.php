@@ -43,11 +43,12 @@ class layoutController extends Controller
     public function pAddLaporan(Request $request){
         $request->laporan_kegiatan();
     }
-    public function lihatLaporan(){
-        $laporan_kegiatan_data = laporan_kegiatan::with(['user'=>function ($q){
-            $q->where('id', auth()->user()->id);
-        }])->get();
-        return view('viewLaporan',compact(['laporan_kegiatan_data']));
+    public function lihatLaporan(User $id){
+        $getdata = $id->load('laporan_kegiatan');
+        return view('viewLaporan',compact('getdata'));
+
+        // $data = User::find($id);
+        // return view('../viewLaporan', compact('data', 'id'));
     }
     public function accLaporan(Request $request){
         $request->validate([
@@ -62,6 +63,6 @@ class layoutController extends Controller
         return view('admin.catatan');
     }
     public function storeCatatan(){
-        
+
     }
 }

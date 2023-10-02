@@ -6,6 +6,7 @@ use App\Models\laporan_kegiatan;
 use App\Models\User;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ResourceController extends Controller
 {
@@ -37,11 +38,10 @@ class ResourceController extends Controller
             $laporan_kegiatan->tanggal_mulai = $request->tanggal_mulai;
             $laporan_kegiatan->tanggal_selesai = $request->tanggal_selesai;
             $laporan_kegiatan->uraian_kegiatan = $request->uraian_kegiatan;
-            $laporan_kegiatan->lampiran_kegiatan = $request->file('lampiran_kegiatan');
-            $nama_gambar = $laporan_kegiatan->lampiran_kegiatan->getClientOriginalName();
-            $extensi = $laporan_kegiatan->lampiran_kegiatan->clientExtension();
-            $laporan_kegiatan->lampiran_kegiatan->storeAs('public/lampiran_kegiatan/', $nama_gambar.".".$extensi);
-            // $laporan_kegiatan->lampiran->storeAs('public/lampiran', "rekep_lampiranSiswa".uniqid().'.'.$laporan_kegiatan->lampiran->extension());
+
+            $laporan_kegiatan->lampiran_kegiatan = $request->file('lampiran_kegiatan')->store('tes_lampiran');
+
+
             $laporan_kegiatan->save();
             return redirect()->route('laporan-kegiatan.index')->with('sukses','Laporan kegiatan berhasil ditambahkan');
     }
@@ -66,5 +66,8 @@ class ResourceController extends Controller
         $laporan_kegiatan->update($request->all());
 
         return redirect('laporan-kegiatan')->with('success','laporan_kegiatan updated successfully');
+    }
+    public function downloadImage(laporan_kegiatan $data){
+        return Storage::download($data->lampiran_kegiatan);
     }
 }

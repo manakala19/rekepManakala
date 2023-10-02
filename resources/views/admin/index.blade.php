@@ -100,7 +100,7 @@
                                     <a class="text-blue-500 hover:text-blue-700 block mb-2"
                                         href="admin/acc-laporan">ACC</a>
                                 </form>
-                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Lihat</a>
+                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan/{{$row->id}}">Lihat</a>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="admin/beri-catatan">Beri
                                     Catatan</a>
                             </td>

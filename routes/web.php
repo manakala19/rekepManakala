@@ -18,14 +18,15 @@ use Symfony\Component\CssSelector\Node\FunctionNode;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/auth/login');
 });
 
 Route::group(['middleware' => ['auth', 'ceklevel:admin,user']], function(){
     Route::resource('laporan-kegiatan', ResourceController::class);
-    Route::get('/lihat-laporan', [layoutController::class, 'lihatLaporan']);
 });
 Route::group(['middleware' => ['auth', 'ceklevel:admin']], function(){
+    Route::get('/lihat-laporan/{id}', [layoutController::class, 'lihatLaporan']);
+    Route::get('/downloadLampiran/{data}', [ResourceController::class, 'downloadImage'])->name('downloadLampiran');
     Route::get('/admin', [layoutController::class, 'adminDash']);
     Route::get('/admin/registrasi-siswa', [layoutController::class, 'siswaRegister']);
     Route::post('/admin/registrasi-siswa', [layoutController::class, 'storeSiswaRegister']);

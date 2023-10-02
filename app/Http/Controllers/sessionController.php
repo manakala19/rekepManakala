@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Session;
 
 class sessionController extends Controller
 {
-    function index(){
-        return view ('auth/index');
-    }
     function register(){
         return view ('auth/register');
     }
@@ -45,7 +42,7 @@ class sessionController extends Controller
         ];
 
         if (Auth::Attempt($data)) {
-            return redirect('/');
+            return redirect('/laporan-kegiatan');
         }else{
             Session::flash('error', 'Email atau Password Salah');
             return redirect('login');

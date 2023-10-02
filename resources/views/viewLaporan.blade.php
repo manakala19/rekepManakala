@@ -47,12 +47,12 @@
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-gray-200 dark:divide-gray-700 text-white">
-                    @foreach($laporan_kegiatan_data as $lapkeg)
+                    @foreach($getdata->laporan_kegiatan as $lapkeg)
                         <tr>
-                            
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->bulan_ke}}</td>
+
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->bulan}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->minggu_ke}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{asset('lampiran_image/'. $lapkeg->lampiran_kegiatan)}}" target="_blank"></a>Lihat Lampiran</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{route('downloadLampiran',[$lapkeg->id])}}" target="_blank">Lihat Lampiran</a></td>
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                 {{-- <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Lihat</a>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('laporan-kegiatan.edit')}}">Edit</a>
