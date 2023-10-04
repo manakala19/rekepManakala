@@ -52,15 +52,15 @@
 
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->bulan}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->minggu_ke}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{route('downloadLampiran',[$lapkeg->id])}}" target="_blank">Lihat Lampiran</a></td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{route('downloadLampiran',[$lapkeg->id])}}" target="_blank" class="text-blue-500 hover:text-blue-700 cursor-pointer">Lihat Lampiran</a></td>
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                 <form action="{{route('accLaporan', [$lapkeg->id])}}" method="POST">
                                     @method('PUT')
                                     @csrf
                                     @if ($lapkeg->status_laporan == 0)
-                                    <input type="submit" value="Berikan Acc">
+                                    <input type="submit" value="Berikan Acc" class="text-blue-500 hover:text-blue-700 cursor-pointer">
                                     @else
-                                    <input type="submit" value="Batalkan Acc">
+                                    <input type="submit" value="Batalkan Acc" class="text-red-500 hover:text-red-700 cursor-pointer">
                                     @endif
                                 </form>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('beriCatatan.show', [$lapkeg->id])}}">Beri Catatan</a>
