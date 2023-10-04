@@ -96,13 +96,11 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                 {{ $row->tempat_prakerin }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
-                                <form action="acc-laporan" method="POST">
-                                    <a class="text-blue-500 hover:text-blue-700 block mb-2"
-                                        href="admin/acc-laporan">ACC</a>
-                                </form>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan/{{$row->id}}">Lihat</a>
-                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="admin/beri-catatan">Beri
-                                    Catatan</a>
+                                {{-- <form action="acc-laporan" method="POST">
+                                    <a class="text-blue-500 hover:text-blue-700 block mb-2" href="admin/acc-laporan">ACC</a>
+                                </form> --}}
+                                {{-- <a class="text-blue-500 hover:text-blue-700 block mb-2" href="admin/beri-catatan">Beri Catatan</a> --}}
                             </td>
                         </tr>
                     @endforeach

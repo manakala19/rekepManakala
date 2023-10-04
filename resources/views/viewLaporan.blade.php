@@ -12,10 +12,10 @@
         <a class="ml-2 text-3xl text-white dark:text-neutral-200" href="{{route('laporan-kegiatan.index')}}">Rekep App</a>
         <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
             @if (auth()->user()->level == "admin")
-            <a class="font-medium text-blue-500" href="/admin" aria-current="page">Admin Tools</a>
+            <a class="font-medium text-blue-500" href="{{route('adminDashboard')}}" aria-current="page">Admin Tools</a>
             @endif
             <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
-                href="/logout">Logout</a>
+                href="{{route('logout')}}">Logout</a>
         </div>
     </div>
 </nav>
@@ -54,6 +54,16 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->minggu_ke}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{route('downloadLampiran',[$lapkeg->id])}}" target="_blank">Lihat Lampiran</a></td>
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
+                                <form action="{{route('accLaporan', [$lapkeg->id])}}" method="POST">
+                                    @method('PUT')
+                                    @csrf
+                                    @if ($lapkeg->status_laporan == 0)
+                                    <input type="submit" value="Berikan Acc">
+                                    @else
+                                    <input type="submit" value="Batalkan Acc">
+                                    @endif
+                                </form>
+                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('beriCatatan.show', [$lapkeg->id])}}">Beri Catatan</a>
                                 {{-- <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Lihat</a>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('laporan-kegiatan.edit')}}">Edit</a>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('laporan-kegiatan.destroy')}}">Hapus</a> --}}

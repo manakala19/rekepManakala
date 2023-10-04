@@ -12,6 +12,7 @@ class laporan_kegiatan extends Model
     use HasFactory;
     protected $table = 'laporan_kegiatan';
     protected $guarded = [];
+    protected $fillable = ['catatan_pembimbing', 'status_laporan'];
 
     public function siswa(){
         return $this->belongsTo(User::class);

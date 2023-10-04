@@ -34,7 +34,7 @@
                     </div>
 
                     <div>
-                        <label class="text-white dark:text-gray-200" for="passwordConfirmation">Bulan</label>
+                        <label class="text-white dark:text-gray-200">Bulan</label>
                         <select name="bulan" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                             <option value="juli">Juli</option>
                             <option value="agustus">Agustus</option>

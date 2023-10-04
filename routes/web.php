@@ -26,16 +26,16 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,user']], function(){
 });
 Route::group(['middleware' => ['auth', 'ceklevel:admin']], function(){
     Route::get('/lihat-laporan/{id}', [layoutController::class, 'lihatLaporan']);
-    Route::get('/downloadLampiran/{data}', [ResourceController::class, 'downloadImage'])->name('downloadLampiran');
-    Route::get('/admin', [layoutController::class, 'adminDash']);
+    Route::get('/downloadLampiran/{id}', [ResourceController::class, 'downloadImage'])->name('downloadLampiran');
+    Route::get('/admin', [layoutController::class, 'adminDash'])->name('adminDashboard');
     Route::get('/admin/registrasi-siswa', [layoutController::class, 'siswaRegister']);
     Route::post('/admin/registrasi-siswa', [layoutController::class, 'storeSiswaRegister']);
     Route::get('registrasi-siswa', [layoutController::class, 'siswaRegister']);
     Route::post('registrasi-siswa', [layoutController::class, 'storeSiswaRegister']);
     Route::get('/admin/search', [layoutController::class, 'adminDash']);
-    Route::get('/admin/acc-laporan', [layoutController::class, 'accLaporan']);
-    Route::get('/admin/beri-catatan', [layoutController::class, 'beriCatatan']);
-    Route::post('/admin/beri-catatan', [layoutController::class, 'storeBeriCatatan']);
+    Route::get('/admin/beri-catatan/{data}/show', [layoutController::class, 'beriCatatan'])->name('beriCatatan.show');
+    Route::put('/admin/acc-laporan/{data}', [layoutController::class, 'accLaporan'])->name('accLaporan');
+    Route::put('/admin/beri-catatan/{data}', [layoutController::class, 'storeBeriCatatan'])->name('beriCatatan.put');
 });
 // lazyload // eagerload
 Route::group(['middleware' => ['guest']], function(){
@@ -45,4 +45,4 @@ Route::group(['middleware' => ['guest']], function(){
     Route::get('/register', [sessionController::class, 'register']);
     Route::post('/register', [sessionController::class, 'actionregister']);
 });
-Route::get('/logout', [sessionController::class, 'actionlogout']);
+Route::get('/logout', [sessionController::class, 'actionlogout'])->name('logout');

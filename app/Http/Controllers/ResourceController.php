@@ -38,10 +38,7 @@ class ResourceController extends Controller
             $laporan_kegiatan->tanggal_mulai = $request->tanggal_mulai;
             $laporan_kegiatan->tanggal_selesai = $request->tanggal_selesai;
             $laporan_kegiatan->uraian_kegiatan = $request->uraian_kegiatan;
-
             $laporan_kegiatan->lampiran_kegiatan = $request->file('lampiran_kegiatan')->store('tes_lampiran');
-
-
             $laporan_kegiatan->save();
             return redirect()->route('laporan-kegiatan.index')->with('sukses','Laporan kegiatan berhasil ditambahkan');
     }
@@ -67,7 +64,7 @@ class ResourceController extends Controller
 
         return redirect('laporan-kegiatan')->with('success','laporan_kegiatan updated successfully');
     }
-    public function downloadImage(laporan_kegiatan $data){
-        return Storage::download($data->lampiran_kegiatan);
+    public function downloadImage(laporan_kegiatan $id){
+        return Storage::download($id->lampiran_kegiatan);
     }
 }

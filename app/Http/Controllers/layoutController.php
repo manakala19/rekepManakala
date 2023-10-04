@@ -17,9 +17,7 @@ class layoutController extends Controller
         if($request->has('search')){
             $user = User::where('name', 'LIKE', '%'.$request->search.'%')->get();
         }else{
-
         }
-
         return view('admin.index', ['siswa' => $user], compact('user'));
     }
     public function siswaRegister(){
@@ -50,19 +48,21 @@ class layoutController extends Controller
         // $data = User::find($id);
         // return view('../viewLaporan', compact('data', 'id'));
     }
-    public function accLaporan(Request $request){
-        $request->validate([
-            'status_laporan' => 'required',
-        ]);
-        $laporan_kegiatan = new laporan_kegiatan;
-        $laporan_kegiatan->status_laporan = true;
-        $laporan_kegiatan->save();
-        return redirect('admin')->with('sukses','Laporan berhasil di acc');
-    }
-    public function beriCatatan(){
-        return view('admin.catatan');
-    }
-    public function storeCatatan(){
+    public function accLaporan(Request $request, laporan_kegiatan $data){
+        if($data->status_laporan == 0){
+            $data->update(['status_laporan'=>1]);
+            return redirect('admin')->with('sukses','Laporan Berhasil di acc');
+        } else{
+            $data->update(['status_laporan'=>0]);
+            return redirect('admin')->with('sukses','acc laporan dibatalkan');
 
+        }
+    }
+    public function beriCatatan(laporan_kegiatan $data){
+        return view('admin.catatan', compact('data'));
+    }
+    public function storeBeriCatatan(Request $request, laporan_kegiatan $data){
+        $data->update(['catatan_pembimbing'=>$request->catatanPembimbing]);
+        return redirect('admin')->with('sukses', 'Catatan berhasil di input');
     }
 }
