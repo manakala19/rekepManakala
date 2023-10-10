@@ -53,8 +53,6 @@
                         </button>
                         </a>
 
-                        <p class="mt-10 text-xs text-white">Lupa Password?</p>
-
                     </div>
                     <!-- fotooo -->
                     <div class="sm:block hidden w-1/2 p-5">

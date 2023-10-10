@@ -24,32 +24,27 @@
     </nav>
 
     <section class="max-w-4xl p-6 mx-auto bg-indigo-600 rounded-md shadow-md dark:bg-gray-800 mt-10 mb-20">
-        <form action="{{route('laporan-kegiatan.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('laporan-kegiatan.update', [$laporan_kegiatan->id])}}" method="POST" enctype="multipart/form-data">
+            @method('PUT')
             @csrf
-            <h1 class="text-xl font-bold text-white capitalize dark:text-white">Input Laporan</h1>
+            <h1 class="text-xl font-bold text-white capitalize dark:text-white">Edit Laporan</h1>
                 <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
-                    <div>
-                        <label class="text-white dark:text-gray-200" for="username">User ID</label>
-                        <input readonly id="user_id" name="user_id" type="text" value="{{auth()->id()}}" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-                    </div>
 
                     <div>
                         <label class="text-white dark:text-gray-200">Bulan</label>
                         <select name="bulan" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-                            <option value="juli">Juli</option>
-                            <option value="agustus">Agustus</option>
-                            <option value="september">September</option>
-                            <option value="oktober">Oktober</option>
+                            @foreach ($data_bulan as $bulan)
+                            <option value="{{$bulan}}" {{($bulan == $laporan_kegiatan->bulan)?'selected':null}} >{{$bulan}}</option>
+                            @endforeach
                         </select>
                     </div>
 
                     <div>
                         <label class="text-white dark:text-gray-200" for="passwordConfirmation">Minggu Ke-</label>
                         <select name="minggu_ke" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
+                            @for ($minggu = 1; $minggu<= 4; $minggu++)
+                            <option value="{{$minggu}}" {{($minggu == $laporan_kegiatan->minggu_ke)?'selected':null}}>{{$minggu}}</option>
+                            @endfor
                         </select>
                     </div>
 
@@ -57,12 +52,12 @@
 
                     <div>
                         <label class="text-white dark:text-gray-200" for="passwordConfirmation">Tanggal Mulai</label>
-                        <input name="tanggal_mulai" id="tanggal_mulai" type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                        <input name="tanggal_mulai" id="tanggal_mulai" value="{{$laporan_kegiatan->tanggal_mulai}}" type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                     </div>
 
                     <div>
                         <label class="text-white dark:text-gray-200" for="passwordConfirmation">Tanggal Selesai</label>
-                        <input name="tanggal_selesai" id="tanggal_selesai" type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                        <input name="tanggal_selesai" id="tanggal_selesai" value="{{$laporan_kegiatan->tanggal_selesai}}" type="date" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
                     </div>
 
                 <div>
@@ -86,12 +81,13 @@
                             </p>
                         </div>
                     </div>
+                    <a href="{{route('downloadLampiran',[$laporan_kegiatan->id])}}" target="_blank" class="text-blue-500 hover:text-blue-700 cursor-pointer">Lihat Lampiran
                 </div>
 
                 </div>
                 <div>
                     <label class="text-white dark:text-gray-200" for="passwordConfirmation"> Uraian Kegiatan</label>
-                    <textarea name="uraian_kegiatan" id="uraian_kegiatan" type="textarea" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+                    <textarea name="uraian_kegiatan" id="uraian_kegiatan" type="textarea" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">{{$laporan_kegiatan->uraian_kegiatan}}</textarea>
                 </div>
 
                 <div class="flex justify-end mt-6">

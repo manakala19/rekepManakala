@@ -10,20 +10,21 @@ use Illuminate\Support\Facades\Storage;
 
 class ResourceController extends Controller
 {
+    public $data_bulan = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
     public function index(){
-        $laporan_kegiatan_data = laporan_kegiatan::with(['user'=>function ($q){
+        $laporan_kegiatan_data = laporan_kegiatan::whereHas('user',function ($q){
             $q->where('id', auth()->user()->id);
-        }])->get();
+        })->with('user')->get();
         return view('laporan_kegiatan.index',compact(['laporan_kegiatan_data']));
     }
 
     public function create(){
-        return view('laporan_kegiatan.create');
+        $data_bulan = $this->data_bulan;
+        return view('laporan_kegiatan.create', compact('data_bulan'));
     }
 
     public function store(Request $request){
         // $request->validate([
-        //     'user_id' => 'required',
         //     'bulan' => 'required',
         //     'minggu_ke' => 'required',
         //     'tanggal_mulai' => 'required',
@@ -32,7 +33,7 @@ class ResourceController extends Controller
         //     'lampiran_kegiatan' => 'required',
         // ]);
             $laporan_kegiatan = new laporan_kegiatan;
-            $laporan_kegiatan->user_id = $request->user_id;
+            $laporan_kegiatan->user_id = auth()->user()->id;
             $laporan_kegiatan->bulan = $request->bulan;
             $laporan_kegiatan->minggu_ke = $request->minggu_ke;
             $laporan_kegiatan->tanggal_mulai = $request->tanggal_mulai;
@@ -48,7 +49,9 @@ class ResourceController extends Controller
     }
     public function edit(laporan_kegiatan $laporan_kegiatan)
     {
-        return view('laporan_kegiatan.edit',compact('laporan_kegiatan'));
+        $this->authorize('update', [laporan_kegiatan::class, $laporan_kegiatan]);
+        $data_bulan = $this->data_bulan;
+        return view('laporan_kegiatan.edit',compact('laporan_kegiatan', 'data_bulan'));
     }
 
     public function update(Request $request, laporan_kegiatan $laporan_kegiatan)
@@ -66,5 +69,9 @@ class ResourceController extends Controller
     }
     public function downloadImage(laporan_kegiatan $id){
         return Storage::download($id->lampiran_kegiatan);
+    }
+    public function destroy(laporan_kegiatan $laporan_kegiatan){
+        $laporan_kegiatan->delete();
+        return redirect('laporan-kegiatan')->with('success', 'Laporan Kegiatan Berhasil Di Delete');
     }
 }

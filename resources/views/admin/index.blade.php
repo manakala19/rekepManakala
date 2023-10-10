@@ -16,7 +16,7 @@
     <nav
         class="relative flex w-full flex-wrap items-center justify-between bg-gray-900 py-2 text-neutral-500 shadow-lg hover:text-neutral-700 focus:text-neutral-700 dark:bg-gray-900 lg:mt-3">
         <div class="flex w-full flex-wrap items-center justify-between px-3">
-            <a class="ml-2 text-3xl text-white dark:text-neutral-200" href="laporan-kegiatan">Rekep App</a>
+            <a class="ml-2 text-3xl text-white dark:text-neutral-200" href="{{route('adminDashboard')}}">Rekep App</a>
 
             <!-- component -->
             <div class="flex items-center justify-center bg-gray-800">
@@ -92,7 +92,7 @@
                                 class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
                                 {{ $row->name }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
-                                {{ $row->jurusan_id }}</td>
+                                {{ $row->jurusan }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200">
                                 {{ $row->tempat_prakerin }}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">

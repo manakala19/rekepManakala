@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedBigInteger('jurusan_id')->index();
+            $table->enum('jurusan', ['Rekayasa Perangkat Lunak', 'Multimedia']);
             $table->string('tempat_prakerin')->nullable();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -22,8 +22,6 @@ return new class extends Migration
             $table->enum('level', ['admin','user']);
             $table->rememberToken();
             $table->timestamps();
-
-            $table->foreign('jurusan_id')->references('id')->on('jurusan')->onDelete('cascade');
         });
     }
 

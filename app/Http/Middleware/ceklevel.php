@@ -15,9 +15,12 @@ class ceklevel
      */
     public function handle(Request $request, Closure $next, ...$levels): Response
     {
+
         if(in_array($request->user()->level,$levels)){
             return $next($request);
         }
-        return redirect('/');
+
+        return redirect('laporan-kegiatan');
+
     }
 }

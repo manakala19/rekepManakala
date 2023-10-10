@@ -42,7 +42,11 @@ class sessionController extends Controller
         ];
 
         if (Auth::Attempt($data)) {
-            return redirect('/laporan-kegiatan');
+            if (auth()->user()->level == "admin") {
+                return redirect('admin');
+            }else{
+                return redirect('laporan-kegiatan');
+            }
         }else{
             Session::flash('error', 'Email atau Password Salah');
             return redirect('login');

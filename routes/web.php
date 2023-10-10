@@ -25,7 +25,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin,user']], function(){
     Route::resource('laporan-kegiatan', ResourceController::class);
 });
 Route::group(['middleware' => ['auth', 'ceklevel:admin']], function(){
-    Route::get('/lihat-laporan/{id}', [layoutController::class, 'lihatLaporan']);
+    Route::get('/lihat-laporan/{id}', [layoutController::class, 'lihatLaporan'])->name('lihatLaporan');
     Route::get('/downloadLampiran/{id}', [ResourceController::class, 'downloadImage'])->name('downloadLampiran');
     Route::get('/admin', [layoutController::class, 'adminDash'])->name('adminDashboard');
     Route::get('/admin/registrasi-siswa', [layoutController::class, 'siswaRegister']);

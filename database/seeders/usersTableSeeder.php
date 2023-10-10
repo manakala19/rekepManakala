@@ -16,7 +16,7 @@ class usersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name'=>'Irham Rizqan Zakiy',
-            'jurusan_id'=>'1',
+            'jurusan'=>'Rekayasa Perangkat Lunak',
             'tempat_prakerin'=>'Bappeda',
             'email'=>'irham@gmail.com',
             'level'=>'admin',
@@ -24,10 +24,18 @@ class usersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name'=>'Rizqan Fajar',
-            'jurusan_id'=>'1',
+            'jurusan'=>'Rekayasa Perangkat Lunak',
             'tempat_prakerin'=>'Bappeda',
             'email'=>'rizqan@gmail.com',
             'level'=>'admin',
+            'password'=>Hash::make('123')
+        ]);
+        DB::table('users')->insert([
+            'name'=>'Muhammad Fathan Kandias',
+            'jurusan'=>'Rekayasa Perangkat Lunak',
+            'tempat_prakerin'=>'DPRD',
+            'email'=>'fathan@gmail.com',
+            'level'=>'user',
             'password'=>Hash::make('123')
         ]);
     }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('laporan_kegiatan', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned()->index()->nullable();
-            $table->enum('bulan', ['juli','agustus','september','oktober']);
+            $table->string('bulan');
             $table->tinyInteger('minggu_ke');
             $table->date('tanggal_mulai');
             $table->date('tanggal_selesai');
