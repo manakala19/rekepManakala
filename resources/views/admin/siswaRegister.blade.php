@@ -43,8 +43,8 @@
                                 <select name="jurusan"
                                     class="w-full px-3 py-2 text-sm leading-tight text-gray-300 border rounded shadow appearance-none focus:outline-none focus:shadow-outline bg-gray-800">
                                     <option value>Pilih Jurusan</option>
-                                    @foreach ($jurusan as $row)
-                                    <option value="{{$row->id}}">{{$row->nama_jurusan}}</option>
+                                    @foreach ($jurusan as $data)
+                                    <option value="{{$data->jurusan}}">{{$data->jurusan}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -60,6 +60,13 @@
                                     placeholder="Tempat Siswa Prakerin"
                                 />
                             </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="block mb-2 text-sm font-bold text-gray-300" for="lastName">
+                                Nomor Induk
+                            </label>
+                            <input type="number" name="nomor_induk" id="nomor_induk" placeholder="Masukan Nomor Induk Siswa" class="w-full px-3 py-2 text-sm leading-tight text-gray-300 border rounded shadow appearance-none focus:outline-none focus:shadow-outline bg-gray-800">
                         </div>
 
                         <div class="mb-4">
@@ -87,7 +94,7 @@
                                 placeholder="Email"
                             />
                         </div>
-                        <div class="mb-4">
+                        <div class="mb-4" >
                             <div>
                                 <label class="block mb-2 text-sm font-bold text-gray-300" for="password">
                                     Password
@@ -102,6 +109,11 @@
 
                             </div>
 
+                            @error('password')
+                                <span>
+                                    <strong class="text-sm text-red-500 ">{{$message}}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="mb-4">
                             <div>
@@ -110,8 +122,8 @@
                                 </label>
                                 <input
                                     class="w-full px-3 py-2 mb-3 text-sm leading-tight rounded-sm dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
-                                    name="password"
-                                    id="password"
+                                    name="password_confirmation"
+                                    id="password_confirmation"
                                     type="password"
                                     placeholder="******************"
                                 />

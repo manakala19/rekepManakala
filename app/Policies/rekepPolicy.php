@@ -19,6 +19,5 @@ class rekepPolicy extends ServiceProvider
     {
 
         return $authUser->id === $lapkeu->user_id;
-
     }
 }

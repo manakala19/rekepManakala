@@ -25,12 +25,18 @@ class layoutController extends Controller
         return view('admin/siswaRegister', compact('jurusan'));
     }
     public function storeSiswaRegister(Request $request){
+        $request->validate([
+            'password' => 'required|confirmed|min:3',
+            'password_confirmation' => 'required|same:password|min:3',
+        ]);
         $users = new User;
         $users->name = $request->namaLengkap;
+        $users->nomor_induk = $request->nomor_induk;
         $users->jurusan = $request->jurusan;
         $users->tempat_prakerin= $request->tempat;
         $users->email = $request->email;
         $users->password = $request->password;
+        $users->password_confirmation = $request->password_confirmation;
         $users->level = $request->level;
         $users->save();
         return redirect('admin');
