@@ -81,7 +81,6 @@
                             </p>
                         </div>
                     </div>
-                    <a href="{{route('downloadLampiran',[$laporan_kegiatan->id])}}" target="_blank" class="text-blue-500 hover:text-blue-700 cursor-pointer">Lihat Lampiran
                 </div>
 
                 </div>
@@ -96,6 +95,7 @@
                     </button>
                 </div>
         </form>
+        <a href="{{route('downloadLampiran',[$laporan_kegiatan->id])}}" target="_blank" class="text-blue-500 hover:text-blue-700 cursor-pointer">Lihat Lampiran
     </section>
 </body>
 </html>

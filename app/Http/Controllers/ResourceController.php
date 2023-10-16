@@ -39,7 +39,7 @@ class ResourceController extends Controller
             $laporan_kegiatan->tanggal_mulai = $request->tanggal_mulai;
             $laporan_kegiatan->tanggal_selesai = $request->tanggal_selesai;
             $laporan_kegiatan->uraian_kegiatan = $request->uraian_kegiatan;
-            $laporan_kegiatan->lampiran_kegiatan = $request->file('lampiran_kegiatan')->store('tes_lampiran');
+            $laporan_kegiatan->lampiran_kegiatan = $request->file('lampiran_kegiatan')->store('lampiran_image');
             $laporan_kegiatan->save();
             return redirect()->route('laporan-kegiatan.index')->with('sukses','Laporan kegiatan berhasil ditambahkan');
     }
@@ -56,14 +56,19 @@ class ResourceController extends Controller
 
     public function update(Request $request, laporan_kegiatan $laporan_kegiatan)
     {
-        $request->validate([
-            'tanggal' => 'required',
-            'hari' => 'required',
-            'minggu_ke' => 'required',
-            'kegiatan_kerja_harian' => 'required',
-        ]);
-
-        $laporan_kegiatan->update($request->all());
+        // $request->validate([
+        //     'tanggal' => 'required',
+        //     'hari' => 'required',
+        //     'minggu_ke' => 'required',
+        //     'kegiatan_kerja_harian' => 'required',
+        // ]);
+        $requestData = $request->all();
+        if($request->lampiran_kegiatan != null){
+            $requestData['lampiran_kegiatan'] = $request->file('lampiran_kegiatan')->store('lampiran_image');
+        } else {
+            unset($requestData['lampiran_kegiatan']);
+        }
+        $laporan_kegiatan->update($requestData);
 
         return redirect('laporan-kegiatan')->with('success','laporan_kegiatan updated successfully');
     }
