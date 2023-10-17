@@ -29,7 +29,7 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function(){
     Route::get('/lihat-laporan/{id}', [layoutController::class, 'lihatLaporan'])->name('lihatLaporan');
     Route::get('/downloadLampiran/{id}', [ResourceController::class, 'downloadImage'])->name('downloadLampiran');
     Route::get('/admin', [layoutController::class, 'adminDash'])->name('adminDashboard');
-    Route::get('/admin/registrasi-siswa', [layoutController::class, 'siswaRegister']);
+    Route::get('/admin/registrasi-siswa', [layoutController::class, 'siswaRegister'])->name('registrasi-siswa');
     Route::post('/admin/registrasi-siswa', [layoutController::class, 'storeSiswaRegister']);
     Route::get('registrasi-siswa', [layoutController::class, 'siswaRegister']);
     Route::post('registrasi-siswa', [layoutController::class, 'storeSiswaRegister']);

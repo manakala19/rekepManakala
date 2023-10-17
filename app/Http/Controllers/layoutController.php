@@ -25,21 +25,32 @@ class layoutController extends Controller
         return view('admin/siswaRegister', compact('jurusan'));
     }
     public function storeSiswaRegister(Request $request){
-        $request->validate([
-            'password' => 'required|confirmed|min:3',
-            'password_confirmation' => 'required|same:password|min:3',
-        ]);
+        // $request->validate([
+        //     'namaLengkap' => 'required',
+        //     'nomor_induk' => 'required|digits:18',
+        //     'jurusan' => 'required',
+        //     'tempat_prakerin' => 'required',
+        //     'email' => 'required|email',
+        //     'password' => 'required|confirmed|min:3',
+        //     'password_confirmation' => 'required|same:password|min:3',
+        // ]);
         $users = new User;
         $users->name = $request->namaLengkap;
         $users->nomor_induk = $request->nomor_induk;
         $users->jurusan = $request->jurusan;
-        $users->tempat_prakerin= $request->tempat;
+        $users->tempat_prakerin= $request->tempat_prakerin;
         $users->email = $request->email;
         $users->password = $request->password;
         $users->password_confirmation = $request->password_confirmation;
         $users->level = $request->level;
         $users->save();
-        return redirect('admin');
+
+        // if($request->validate() != TRUE){
+        //     return redirect('registrasi-siswa')->with('error', 'Sepertinya Ada yang terlewat, Silahkan Check Kembali Formulir');
+        // } else{
+        //     return redirect('registrasi-siswa')->with('sukses', 'Data Siswa Berhasil Ditambahkan');
+        // }
+        return redirect('registrasi-siswa')->with('sukses', 'Data Siswa Berhasil Ditambahkan');
     }
     public function addLaporan(){
         return view('addLaporan');

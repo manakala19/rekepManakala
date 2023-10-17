@@ -27,10 +27,10 @@ class ResourceController extends Controller
         // $request->validate([
         //     'bulan' => 'required',
         //     'minggu_ke' => 'required',
-        //     'tanggal_mulai' => 'required',
-        //     'tanggal_selesai' => 'required',
+        //     'tanggal_mulai' => 'required|min:2020',
+        //     'tanggal_selesai' => 'required|min:2020|max:'.(date('Y')+1),
         //     'uraian_kegiatan' => 'required',
-        //     'lampiran_kegiatan' => 'required',
+        //     'lampiran_kegiatan' => 'required|mime:jpg,jpeg,png',
         // ]);
             $laporan_kegiatan = new laporan_kegiatan;
             $laporan_kegiatan->user_id = auth()->user()->id;
@@ -56,12 +56,6 @@ class ResourceController extends Controller
 
     public function update(Request $request, laporan_kegiatan $laporan_kegiatan)
     {
-        // $request->validate([
-        //     'tanggal' => 'required',
-        //     'hari' => 'required',
-        //     'minggu_ke' => 'required',
-        //     'kegiatan_kerja_harian' => 'required',
-        // ]);
         $requestData = $request->all();
         if($request->lampiran_kegiatan != null){
             $requestData['lampiran_kegiatan'] = $request->file('lampiran_kegiatan')->store('lampiran_image');
