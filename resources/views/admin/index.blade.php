@@ -45,7 +45,7 @@
             </div>
         </div>
     </nav>
-    <h1 class="ml-5 text-lg text-gray-200 ">Dashboard Admin</h1>
+    <h1 class="ml-5 text-lg text-gray-200 ">Halo {{auth()->user()->name}}</h1>
     <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 mt-2">
         @if(session('sukses'))
             <div class="mb-3 inline-flex w-full items-center rounded-lg bg-green-300 px-6 py-5 text-base text-green-600"

@@ -19,7 +19,7 @@
         </div>
     </div>
 </nav>
-<h1 class="ml-5 text-lg text-gray-200">Dashboard Siswa</h1>
+<h1 class="ml-5 text-lg text-gray-200">Halo {{auth()->user()->name}}</h1>
     <section class="bg-gray-50 dark:bg-gray-900 p-3 sm:p-5 block py-20">
         <div class="mx-auto max-w-screen-xl px-4 lg:px-12">
             <!-- start sinii  -->
