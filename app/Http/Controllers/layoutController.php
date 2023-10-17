@@ -71,4 +71,9 @@ class layoutController extends Controller
         $data->update(['catatan_pembimbing'=>$request->catatanPembimbing]);
         return redirect('admin')->with('sukses', 'Catatan berhasil di input');
     }
+    // public function hapusBeriCatatan(laporan_kegiatan $allData){
+    //     $catatan = laporan_kegiatan::where('catatan_pembimbing', $catatan->catatan_pembimbing)
+    //     $allData['beri_catatan']->delete();
+    //     return redirect('admin')->with('sukses', 'Catatan berhasil dihapus');
+    // }
 }

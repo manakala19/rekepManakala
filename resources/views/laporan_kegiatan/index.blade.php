@@ -46,6 +46,7 @@
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tanggal Selesai</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase ">Uraian Kegiatan</th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase ">Lampiran Kegiatan</th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase ">Catatan Pembimbing</th>
                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Aksi</th>
                     </tr>
                 </thead>
@@ -58,12 +59,13 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->tanggal_selesai}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->uraian_kegiatan}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{route('downloadLampiran',[$lapkeg->id])}}" target="_blank" rel="noopener norefferer" class="text-blue-500 cursor-pointer">Lihat Lampiran</a></td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->catatan_pembimbing}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('laporan-kegiatan.edit', [$lapkeg->id])}}">Edit</a>
                                 <form action="{{route('laporan-kegiatan.destroy', [$lapkeg->id])}}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" class="text-blue-500 hover:text-blue-700 block mb-2" value="                Delete">
+                                <input type="submit" class="text-blue-500 hover:text-blue-700 block mb-2" value="Delete">
                                 </form>
                             </td>
                         </tr>

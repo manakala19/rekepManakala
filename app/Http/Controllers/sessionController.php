@@ -11,19 +11,7 @@ use Illuminate\Support\Facades\Session;
 class sessionController extends Controller
 {
     function register(){
-        return view ('auth/register');
-    }
-
-    public function actionregister(Request $request)
-    {
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-
-        Session::flash('message', 'Register Berhasil. Akun Anda sudah Aktif silahkan Login menggunakan email dan password.');
-        return redirect('register');
+        return redirect('login')->with('register','Untuk melakukan registrasi mohon hubungi Pihak Instansi atau Pihak Sekolah!');
     }
 
     public function login()
@@ -31,7 +19,7 @@ class sessionController extends Controller
         if (Auth::check()) {
             return redirect('/');
         }else{
-            return view('auth/login');
+            return route('login');
         }
     }
     public function actionlogin(Request $request)

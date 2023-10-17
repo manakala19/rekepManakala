@@ -42,6 +42,8 @@
                     <tr>
                         <th scope="col" class="px-8 py-3 text-left text-xs font-medium text-gray-500 uppercase "> Bulan </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase "> Minggu ke </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase "> Uraian Kegiatan </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase "> Catatan Pembimbing </th>
                         <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase ">Lampiran Kegiatan</th>
                         <th scope="col" class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase">Aksi</th>
                     </tr>
@@ -52,6 +54,14 @@
 
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->bulan}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->minggu_ke}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200"> {{$lapkeg->uraian_kegiatan}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                @if ($lapkeg->catatan_pembimbing != null)
+                                {{$lapkeg->catatan_pembimbing}}
+                                @elseif($lapkeg->catatan_pembimbing == null)
+                                <p>Catatan Tidak Terdeteksi</p>
+                                @endif
+                            </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{route('downloadLampiran',[$lapkeg->id])}}" target="_blank" class="text-blue-500 hover:text-blue-700 cursor-pointer">Lihat Lampiran</a></td>
                             <td class="px-6 py-4 whitespace-nowrap text-center text-sm font-medium">
                                 <form action="{{route('accLaporan', [$lapkeg->id])}}" method="POST">
@@ -63,7 +73,15 @@
                                     <input type="submit" value="Batalkan Acc" class="text-red-500 hover:text-red-700 cursor-pointer">
                                     @endif
                                 </form>
-                                <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('beriCatatan.show', [$lapkeg->id])}}">Beri Catatan</a>
+                                <a class="text-blue-500 hover:text-blue-700 block" href="{{route('beriCatatan.show', [$lapkeg->id])}}">Beri Catatan</a>
+                                {{-- @if ($lapkeg->catatan_pembimbing != null)
+                                <form action="{{route('beriCatatan.destroy', [$lapkeg->id])}}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <input type="submit" class="text-blue-500 hover:text-blue-700 block mb-2" value="Delete Catatan">
+                                    </form>
+                                @endif --}}
+
                                 {{-- <a class="text-blue-500 hover:text-blue-700 block mb-2" href="lihat-laporan">Lihat</a>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('laporan-kegiatan.edit')}}">Edit</a>
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('laporan-kegiatan.destroy')}}">Hapus</a> --}}

@@ -37,13 +37,13 @@ Route::group(['middleware' => ['auth', 'ceklevel:admin']], function(){
     Route::get('/admin/beri-catatan/{data}/show', [layoutController::class, 'beriCatatan'])->name('beriCatatan.show');
     Route::put('/admin/acc-laporan/{data}', [layoutController::class, 'accLaporan'])->name('accLaporan');
     Route::put('/admin/beri-catatan/{data}', [layoutController::class, 'storeBeriCatatan'])->name('beriCatatan.put');
+    Route::delete('/admin/beri-catatan/{data}', [layoutController::class, 'hapusBeriCatatan'])->name('beriCatatan.destroy');
 });
 // lazyload // eagerload
 Route::group(['middleware' => ['guest']], function(){
     Route::get('/login', [sessionController::class, 'login'])->name('login');
     Route::post('/login', [sessionController::class, 'actionlogin']);
 
-    Route::get('/register', [sessionController::class, 'register']);
-    Route::post('/register', [sessionController::class, 'actionregister']);
+    Route::get('/register', [sessionController::class, 'register'])->name('register');
 });
 Route::get('/logout', [sessionController::class, 'actionlogout'])->name('logout');
