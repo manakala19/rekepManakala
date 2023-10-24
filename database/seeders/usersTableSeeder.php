@@ -36,7 +36,7 @@ class usersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'name'=>'Muhammad Fathan Kandias',
-            'nomor_induk'=>'212210555',
+            'nomor_induk'=>'212210545',
             'jurusan'=>'Rekayasa Perangkat Lunak',
             'tempat_prakerin'=>'DPRD',
             'email'=>'fathan@gmail.com',

@@ -11,9 +11,9 @@
     <div class="flex w-full flex-wrap items-center justify-between px-3">
         <a class="ml-2 text-3xl text-white dark:text-neutral-200" href="{{route('adminDashboard')}}">Rekep App</a>
         <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:pl-5">
-            @if (auth()->user()->level == "admin")
-            <a class="font-medium text-blue-500" href="{{route('adminDashboard')}}" aria-current="page">Admin Tools</a>
-            @endif
+            @if(auth()->user()->level == "admin")
+            <a class="font-medium text-blue-500" href="{{route('adminDashboard')}}" aria-current="page">You are an {{auth()->user()->level}}</a>
+        @endif
             <a class="font-medium text-gray-600 hover:text-gray-400 dark:text-gray-400 dark:hover:text-gray-500"
                 href="{{route('logout')}}">Logout</a>
         </div>

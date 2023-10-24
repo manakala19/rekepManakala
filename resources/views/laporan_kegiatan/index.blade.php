@@ -59,7 +59,13 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->tanggal_selesai}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->uraian_kegiatan}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{route('downloadLampiran',[$lapkeg->id])}}" target="_blank" rel="noopener norefferer" class="text-blue-500 cursor-pointer">Lihat Lampiran</a></td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->catatan_pembimbing}}</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
+                                @if ($lapkeg->catatan_pembimbing != null)
+                                {{$lapkeg->catatan_pembimbing}}
+                                @elseif($lapkeg->catatan_pembimbing == null)
+                                <p>Catatan Tidak Terdeteksi</p>
+                                @endif
+                            </td>
                             <td class="px-6 py-4 whitespace-nowrap text-center">
                                 <a class="text-blue-500 hover:text-blue-700 block mb-2" href="{{route('laporan-kegiatan.edit', [$lapkeg->id])}}">Edit</a>
                                 <form action="{{route('laporan-kegiatan.destroy', [$lapkeg->id])}}" method="POST">

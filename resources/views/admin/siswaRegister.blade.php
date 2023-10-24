@@ -16,8 +16,7 @@
                 <!-- Col -->
                 <div
                     class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12 bg-cover rounded-l-lg"
-                    style="background-image: url('https://images.unsplash.com/flagged/photo-1589829482673-03413c918c48?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1484&q=80')"
-                ></div>
+                > <img src="{{asset('assets/addDataForm.jpg')}}" alt="" class="h-full"> </div>
                 <!-- Col -->
                 <div class="w-full lg:w-7/12 bg-gray-900 p-5 rounded-lg lg:rounded-l-none">
                     <h3 class="pt-4 text-2xl text-center text-white">Buat akun siswa prakerin!</h3>

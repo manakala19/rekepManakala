@@ -11,15 +11,15 @@ use Illuminate\Support\Facades\Session;
 class sessionController extends Controller
 {
     function register(){
-        return redirect('login')->with('register','Untuk melakukan registrasi mohon hubungi Pihak Instansi atau Pihak Sekolah!');
+        return redirect('/')->with('register','Untuk melakukan registrasi mohon hubungi Pihak Instansi atau Pihak Sekolah!');
     }
 
     public function login()
     {
         if (Auth::check()) {
-            return redirect('/');
+            return redirect('laporan-kegiatan');
         }else{
-            return route('login');
+            return redirect('/');
         }
     }
     public function actionlogin(Request $request)
@@ -37,7 +37,7 @@ class sessionController extends Controller
             }
         }else{
             Session::flash('error', 'Email atau Password Salah');
-            return redirect('login');
+            return redirect('/');
         }
     }
 
@@ -46,6 +46,6 @@ class sessionController extends Controller
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect('login');
+        return redirect('/');
     }
 }
