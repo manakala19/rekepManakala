@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::group(['middleware' => ['auth', 'ceklevel:user']], function(){
     Route::resource('laporan-kegiatan', ResourceController::class);
-    Route::get('/downloadLampiran/{id}', [ResourceController::class, 'downloadImage'])->name('downloadLampiran');
+    Route::get('/downloadLampiranSiswa/{id}', [ResourceController::class, 'downloadImageAsSiswa'])->name('downloadLampiranAsSiswa');
 });
 Route::group(['middleware' => ['auth', 'ceklevel:admin']], function(){
     Route::get('/lihat-laporan/{id}', [layoutController::class, 'lihatLaporan'])->name('lihatLaporan');

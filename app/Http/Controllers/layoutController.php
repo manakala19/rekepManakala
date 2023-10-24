@@ -25,15 +25,15 @@ class layoutController extends Controller
         return view('admin/siswaRegister', compact('jurusan'));
     }
     public function storeSiswaRegister(Request $request){
-        $request->validate([
-            'namaLengkap' => 'required',
-            'nomor_induk' => 'required|digits:18',
-            'jurusan' => 'required',
-            'tempat_prakerin' => 'required',
-            'email' => 'required|email',
-            'password' => 'required|confirmed|min:3',
-            'password_confirmation' => 'required|same:password|min:3',
-        ]);
+        // $request->validate([
+        //     'namaLengkap' => 'required',
+        //     'nomor_induk' => 'required|digits:18',
+        //     'jurusan' => 'required',
+        //     'tempat_prakerin' => 'required',
+        //     'email' => 'required|email',
+        //     'password' => 'required|confirmed|min:3',
+        //     'password_confirmation' => 'required|same:password|min:3',
+        // ]);
         $users = new User;
         $users->name = $request->namaLengkap;
         $users->nomor_induk = $request->nomor_induk;

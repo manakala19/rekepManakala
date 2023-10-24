@@ -58,7 +58,7 @@
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->tanggal_mulai}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->tanggal_selesai}}</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> {{$lapkeg->uraian_kegiatan}}</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{route('downloadLampiran',[$lapkeg->id])}}" target="_blank" rel="noopener norefferer" class="text-blue-500 cursor-pointer">Lihat Lampiran</a></td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-gray-200"> <a href="{{route('downloadLampiranAsSiswa',[$lapkeg->id])}}" target="_blank" class="text-blue-500 cursor-pointer">Lihat Lampiran</a></td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-gray-200">
                                 @if ($lapkeg->catatan_pembimbing != null)
                                 {{$lapkeg->catatan_pembimbing}}

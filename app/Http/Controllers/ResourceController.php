@@ -69,6 +69,9 @@ class ResourceController extends Controller
     public function downloadImage(laporan_kegiatan $id){
         return Storage::download($id->lampiran_kegiatan);
     }
+    public function downloadImageAsSiswa(laporan_kegiatan $id){
+        return Storage::download($id->lampiran_kegiatan);
+    }
     public function destroy(laporan_kegiatan $laporan_kegiatan){
         $laporan_kegiatan->delete();
         return redirect('laporan-kegiatan')->with('success', 'Laporan Kegiatan Berhasil Di Delete');
